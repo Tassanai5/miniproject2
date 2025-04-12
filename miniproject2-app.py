@@ -198,7 +198,7 @@ def detail_page():
         
     
     with tab3:
-        st.header(f"⏰Wait for Gaze Sequence - {light_condition.upper()...} Light")
+        st.header(f"⏰Wait for Gaze Sequence...")
         # st.write(f"This visualization shows the sequence of gaze points over time in {light_condition} light conditions.")
         
         # # Different gaze data based on light condition
