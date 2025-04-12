@@ -1,11 +1,6 @@
 import streamlit as st
 import numpy as np
-from PIL import Image
-import cv2
-import os
 import pandas as pd
-import time
-import random
 
 # === CONFIGURATION ===
 NV_ROOT = '/Users/Tassanai/Library/CloudStorage/OneDrive-ChulalongkornUniversity/University/3Junior/Second Semester/2603278 INFO VISUAL/miniproject 2/dataset/NV'
@@ -147,17 +142,17 @@ def detail_page():
     light_condition = st.session_state['light_condition']
     
     with tab1:
-        st.header(f"Pupil Size Analysis - {light_condition.upper()} Light")
+        st.header(f"⏰Wait for Pupil Size Analysis... - {light_condition.upper()} Light")
         
-        # Generate different data based on light condition
-        if light_condition == 'low':
-            pupil_data = [random.randint(15, 25) for _ in range(100)]  # Smaller pupils in low light
-        elif light_condition == 'medium':
-            pupil_data = [random.randint(20, 30) for _ in range(100)]  # Medium-sized pupils
-        else:  # high light
-            pupil_data = [random.randint(25, 40) for _ in range(100)]  # Larger pupils in high light
+        # # Generate different data based on light condition
+        # if light_condition == 'low':
+        #     pupil_data = [random.randint(15, 25) for _ in range(100)]  # Smaller pupils in low light
+        # elif light_condition == 'medium':
+        #     pupil_data = [random.randint(20, 30) for _ in range(100)]  # Medium-sized pupils
+        # else:  # high light
+        #     pupil_data = [random.randint(25, 40) for _ in range(100)]  # Larger pupils in high light
             
-        st.line_chart({"Pupil Diameter": pupil_data})
+        # st.line_chart({"Pupil Diameter": pupil_data})
         
     
     with tab2:
@@ -203,36 +198,36 @@ def detail_page():
         
     
     with tab3:
-        st.header(f"Gaze Sequence - {light_condition.upper()} Light")
-        st.write(f"This visualization shows the sequence of gaze points over time in {light_condition} light conditions.")
+        st.header(f"⏰Wait for Gaze Sequence - {light_condition.upper()...} Light")
+        # st.write(f"This visualization shows the sequence of gaze points over time in {light_condition} light conditions.")
         
-        # Different gaze data based on light condition
-        if light_condition == 'low':
-            # More concentrated gaze points for low light
-            x_pos = [random.randint(200, 300) for _ in range(20)]
-            y_pos = [random.randint(100, 200) for _ in range(20)]
-        elif light_condition == 'medium':
-            # Moderate spread for medium light
-            x_pos = [random.randint(150, 350) for _ in range(20)]
-            y_pos = [random.randint(75, 225) for _ in range(20)]
-        else:  # high light
-            # Wider spread for high light
-            x_pos = [random.randint(100, 400) for _ in range(20)]
-            y_pos = [random.randint(50, 250) for _ in range(20)]
+        # # Different gaze data based on light condition
+        # if light_condition == 'low':
+        #     # More concentrated gaze points for low light
+        #     x_pos = [random.randint(200, 300) for _ in range(20)]
+        #     y_pos = [random.randint(100, 200) for _ in range(20)]
+        # elif light_condition == 'medium':
+        #     # Moderate spread for medium light
+        #     x_pos = [random.randint(150, 350) for _ in range(20)]
+        #     y_pos = [random.randint(75, 225) for _ in range(20)]
+        # else:  # high light
+        #     # Wider spread for high light
+        #     x_pos = [random.randint(100, 400) for _ in range(20)]
+        #     y_pos = [random.randint(50, 250) for _ in range(20)]
             
-        gaze_data = pd.DataFrame({
-            'Time': list(range(20)),
-            'X_Position': x_pos,
-            'Y_Position': y_pos
-        })
+        # gaze_data = pd.DataFrame({
+        #     'Time': list(range(20)),
+        #     'X_Position': x_pos,
+        #     'Y_Position': y_pos
+        # })
         
-        st.dataframe(gaze_data)
+        # st.dataframe(gaze_data)
         
-        st.scatter_chart(
-            gaze_data,
-            x='X_Position',
-            y='Y_Position'
-        )
+        # st.scatter_chart(
+        #     gaze_data,
+        #     x='X_Position',
+        #     y='Y_Position'
+        # )
 
     # Add some space before the footer
     # st.markdown("<br><br>", unsafe_allow_html=True)
@@ -260,78 +255,78 @@ def detail_page():
 def summ_page():
     """Displays a summary page with embedded Tableau dashboards."""
     
-    st.title("Gaze Analysis Summary")
+    st.title("⏰Wait for Gaze Analysis Summary Dashboard...")
     
     # Description
     st.write("This page shows comprehensive analysis dashboards created in Tableau.")
     
-    # Create tabs for different dashboards
-    tab1, tab2 = st.tabs(["Overall Summary", "Detailed Metrics"])
+    # # Create tabs for different dashboards
+    # tab1, tab2 = st.tabs(["Overall Summary", "Detailed Metrics"])
     
-    with tab1:
-        st.header("Overall Gaze Analysis")
-        st.write("This dashboard shows aggregated data across all videos and light conditions.")
+    # with tab1:
+    #     st.header("Overall Gaze Analysis")
+    #     st.write("This dashboard shows aggregated data across all videos and light conditions.")
         
-        # Replace the URL with your actual Tableau Public dashboard URL
-        tableau_url = "https://public.tableau.com/views/YourOverallDashboard/Dashboard1?:embed=true&:showVizHome=no&:toolbar=no"
+    #     # Replace the URL with your actual Tableau Public dashboard URL
+    #     tableau_url = "https://public.tableau.com/views/YourOverallDashboard/Dashboard1?:embed=true&:showVizHome=no&:toolbar=no"
         
-        # Embed the Tableau dashboard
-        st.components.v1.iframe(
-            src=tableau_url,
-            width=1000,
-            height=700,
-            scrolling=False
-        )
+    #     # Embed the Tableau dashboard
+    #     st.components.v1.iframe(
+    #         src=tableau_url,
+    #         width=1000,
+    #         height=700,
+    #         scrolling=False
+    #     )
     
-    with tab2:
-        st.header("Detailed Metrics by Movie and Light Condition")
+    # with tab2:
+    #     st.header("Detailed Metrics by Movie and Light Condition")
         
-        # Filter controls
-        col1, col2 = st.columns(2)
-        with col1:
-            # These would be your actual clip names
-            selected_clip = st.selectbox(
-                "Select Movie", 
-                options=CLIP_NAMES,
-                key="tableau_clip_select"
-            )
+    #     # Filter controls
+    #     col1, col2 = st.columns(2)
+    #     with col1:
+    #         # These would be your actual clip names
+    #         selected_clip = st.selectbox(
+    #             "Select Movie", 
+    #             options=CLIP_NAMES,
+    #             key="tableau_clip_select"
+    #         )
         
-        with col2:
-            light_condition = st.selectbox(
-                "Select Light Condition",
-                options=["Low", "Medium", "High"],
-                key="tableau_light_select" 
-            )
+    #     with col2:
+    #         light_condition = st.selectbox(
+    #             "Select Light Condition",
+    #             options=["Low", "Medium", "High"],
+    #             key="tableau_light_select" 
+    #         )
         
-        st.write(f"Showing detailed metrics for {selected_clip} under {light_condition} light conditions")
+    #     st.write(f"Showing detailed metrics for {selected_clip} under {light_condition} light conditions")
         
-        # For a real implementation, you would dynamically construct a URL with filters
-        # based on the selections above, something like:
-        tableau_detail_url = f"https://public.tableau.com/views/YourDetailedDashboard/Dashboard2?:embed=true&:showVizHome=no&:toolbar=no&Movie={selected_clip}&Light={light_condition}"
+    #     # For a real implementation, you would dynamically construct a URL with filters
+    #     # based on the selections above, something like:
+    #     tableau_detail_url = f"https://public.tableau.com/views/YourDetailedDashboard/Dashboard2?:embed=true&:showVizHome=no&:toolbar=no&Movie={selected_clip}&Light={light_condition}"
         
-        # Embed the filtered Tableau dashboard
-        st.components.v1.iframe(
-            src=tableau_detail_url,
-            width=1000,
-            height=700,
-            scrolling=False
-        )
+    #     # Embed the filtered Tableau dashboard
+    #     st.components.v1.iframe(
+    #         src=tableau_detail_url,
+    #         width=1000,
+    #         height=700,
+    #         scrolling=False
+    #     )
         
-        # Alternative embedding with HTML/JS API for more control
-        # tableau_html = f"""
-        # <div class='tableauPlaceholder' style='width: 1000px; height: 700px;'>
-        #     <object class='tableauViz' width='1000' height='700' style='display:none;'>
-        #         <param name='host_url' value='https://public.tableau.com/' />
-        #         <param name='embed_code_version' value='3' />
-        #         <param name='site_root' value='' />
-        #         <param name='name' value='YourDetailedDashboard/Dashboard2' />
-        #         <param name='tabs' value='no' />
-        #         <param name='toolbar' value='yes' />
-        #         <param name='filter' value='Movie={selected_clip}&Light={light_condition}' />
-        #     </object>
-        # </div>
-        # """
-        # st.components.v1.html(tableau_html, width=1020, height=720)
+    #     # Alternative embedding with HTML/JS API for more control
+    #     # tableau_html = f"""
+    #     # <div class='tableauPlaceholder' style='width: 1000px; height: 700px;'>
+    #     #     <object class='tableauViz' width='1000' height='700' style='display:none;'>
+    #     #         <param name='host_url' value='https://public.tableau.com/' />
+    #     #         <param name='embed_code_version' value='3' />
+    #     #         <param name='site_root' value='' />
+    #     #         <param name='name' value='YourDetailedDashboard/Dashboard2' />
+    #     #         <param name='tabs' value='no' />
+    #     #         <param name='toolbar' value='yes' />
+    #     #         <param name='filter' value='Movie={selected_clip}&Light={light_condition}' />
+    #     #     </object>
+    #     # </div>
+    #     # """
+    #     # st.components.v1.html(tableau_html, width=1020, height=720)
 
     # Create a footer container
     footer_container = st.container()
