@@ -143,7 +143,8 @@ def detail_page():
     light_condition = st.session_state['light_condition']
     
     with tab1:
-        st.header(f"⏰Wait for Pupil Size Analysis... - {light_condition.upper()} Light")
+        st.header(f"Pupil Size Analysis - {light_condition.upper()} Light")
+        st.write("⏰Wait for the data to fill here🙌🏻🥶🫱🏻‍🫲🏾")
         
         # # Generate different data based on light condition
         # if light_condition == 'low':
@@ -199,8 +200,8 @@ def detail_page():
         
     
     with tab3:
-        st.header(f"⏰Wait for Gaze Sequence...")
-        # st.write(f"This visualization shows the sequence of gaze points over time in {light_condition} light conditions.")
+        st.header(f"Gaze Sequence - {light_condition.upper()} Light")
+        st.write("⏰Wait for the data to fill here🙌🏻🥶🫱🏻‍🫲🏾")
         
         # # Different gaze data based on light condition
         # if light_condition == 'low':
