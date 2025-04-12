@@ -136,6 +136,13 @@ def detail_page():
         st.info(f"Currently viewing: {selected_clip} under {st.session_state['light_condition']} light conditions")
     else:
         st.warning("Please select a light condition to view the analysis")
+        
+        # Add Back to Home button right after the warning
+        col1, col2, col3, col4 = st.columns([1, 1, 1, 1])
+        with col1:  # Center the button
+            if st.button("Back to Home", key="back_btn", use_container_width=True):
+                st.session_state['page'] = 'home'
+                st.rerun()
         return  # Don't display tabs until a light condition is selected
     
     # Tabs for different visualizations based on light condition
