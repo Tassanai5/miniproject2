@@ -1,18 +1,210 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-import cv2
 import time
+import cv2
+import requests
+import tempfile
+import os
 
 # === CONFIGURATION ===
 NV_ROOT = '/Users/Tassanai/Library/CloudStorage/OneDrive-ChulalongkornUniversity/University/3Junior/Second Semester/2603278 INFO VISUAL/miniproject 2/dataset/NV'
-CLIP_VIDEO_MAPPING = {
-    'Shrek': {"Low": ["SHREK_10a", "HEATMAPURL:https://res.cloudinary.com/dlggzzrag/video/upload/v1744443658/heatmapoverlay_SHREK_10a_s0qq7j.mp4"], "Medium": ["SHREK_3b", "HEATMAPURL:https://res.cloudinary.com/dlggzzrag/video/upload/v1744443668/heatmapoverlay_SHREK_3b_lqcyyc.mp4"], "High": ["SHREK_3a", "HEATMAPURL:https://res.cloudinary.com/dlggzzrag/video/upload/v1744443692/heatmapoverlay_SHREK_3a_dgrkux.mp4"], "ThumbnailURL": "https://github.com/Tassanai5/material-miniproject2/blob/main/image/Shrek_Thumbnail.jpg?raw=true"},
-    'Deep Blue': {"Low": ["DEEPB_9c", "HEATMAPURL:https://res.cloudinary.com/dlggzzrag/video/upload/v1744443688/heatmapoverlay_DEEPB_9c_uwtbxs.mp4"], "Medium": ["DEEPB_5b", "HEATMAPURL:https://res.cloudinary.com/dlggzzrag/video/upload/v1744443488/heatmapoverlay_DEEPB_5b_p1erof.mp4"], "High": ["DEEPB_11a", "HEATMAPURL:https://res.cloudinary.com/dlggzzrag/video/upload/v1744443720/heatmapoverlay_DEEPB_11a_packhk.mp4"], "ThumbnailURL": "https://github.com/Tassanai5/material-miniproject2/blob/main/image/Deep_Blue_Thumbnail.jpg?raw=true"},
-    'The Squid and the Whale': {"Low": ["SQUID_8a", "HEATMAPURL:https://res.cloudinary.com/dlggzzrag/video/upload/v1744443689/heatmapoverlay_SQUID_8a_vehssz.mp4"], "Medium": ["SQUID_12c", "HEATMAPURL:https://res.cloudinary.com/dlggzzrag/video/upload/v1744443695/heatmapoverlay_SQUID_12c_x7zaou.mp4"], "High": ["SQUID_6a", "HEATMAPURL:https://res.cloudinary.com/dlggzzrag/video/upload/v1744443691/heatmapoverlay_SQUID_6a_wpmqec.mp4"], "ThumbnailURL": "https://github.com/Tassanai5/material-miniproject2/blob/main/image/The_Squid_and_the_Whale_Thumbnail.jpg?raw=true"}
-}
-CLIP_NAMES = list(CLIP_VIDEO_MAPPING.keys())
-CLOUDINARY_URL = "https://res.cloudinary.com/dlggzzrag/video/upload/heatmapoverlay_"
+CLIP_VIDEO_MAPPING =[{'Shrek': 
+                        {
+                            'Thumbnail': 'https://github.com/Tassanai5/material-miniproject2/blob/main/image/Shrek_Thumbnail.jpg?raw=true',
+                            'Low': {
+                                    'name': 'SHREK_10a',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443658/heatmapoverlay_SHREK_10a_s0qq7j.mp4',
+                                    'Gaze Sequence': {
+                                                        'overall': '',
+                                                        'participant': [
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        ''
+                                                                        ]
+                                                    }
+                                    },
+                            'Medium': {
+                                    'name': 'SHREK_3b',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443668/heatmapoverlay_SHREK_3b_lqcyyc.mp4',
+                                    'Gaze Sequence': {
+                                                        'overall': '',
+                                                        'participant': [
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        ''
+                                                                        ]
+                                                    }
+                                    },
+                            'High': {
+                                    'name': 'SHREK_3a',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443692/heatmapoverlay_SHREK_3a_dgrkux.mp4',
+                                    'Gaze Sequence': {
+                                                        'overall': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744471343/shrek_overall_hukdzt.mp4',
+                                                        'participant': ['https://res.cloudinary.com/dlggzzrag/video/upload/v1744471361/Shrekpath_2802ln_deeap9.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744471360/Shrekpath_2792sl_k2tcpc.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744471359/Shrekpath_2719sn_dqzmmw.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744471357/Shrekpath_2103en_gvjqqe.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744471357/Shrekpath_2086ty_bxmsh5.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744471355/Shrekpath_2141po_po8v5g.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744471350/Shrekpath_2039nn_s6jalp.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744471347/Shrekpath_2024er_kxryht.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744471346/Shrekpath_0811ne_aqvgby.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744471345/Shrekpath_2017ae_uy4nhk.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744471345/Shrekpath_2033kt_fw8pw7.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744471342/Shrekpath_0724er_necb29.mp4']
+                                                    }
+                                                }
+                        }
+                    },
+                    {'Deep Blue': 
+                        {
+                            'Thumbnail': 'https://github.com/Tassanai5/material-miniproject2/blob/main/image/Deep_Blue_Thumbnail.jpg?raw=true',
+                            'Low': {
+                                    'name': 'DEEPB_9c',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443688/heatmapoverlay_DEEPB_9c_uwtbxs.mp4',
+                                    'Gaze Sequence': {
+                                                        'overall': '',
+                                                        'participant': [
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        ''
+                                                                        ]
+                                                    }
+                                    },
+                            'Medium': {
+                                    'name': 'DEEPB_5b',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443488/heatmapoverlay_DEEPB_5b_p1erof.mp4',
+                                    'Gaze Sequence': {
+                                                        'overall': '',
+                                                        'participant': [
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        ''
+                                                                        ]
+                                                    }
+                                    },
+                            'High': {
+                                    'name': 'DEEPB_11a',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443720/heatmapoverlay_DEEPB_11a_packhk.mp4',
+                                    'Gaze Sequence': {
+                                                        'overall': '',
+                                                        'participant': ['',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '']
+                                                    }
+                                    }
+                        }
+                    },
+                    {'The Squid and the Whale': 
+                        {
+                            'Thumbnail': 'https://github.com/Tassanai5/material-miniproject2/blob/main/image/The_Squid_and_the_Whale_Thumbnail.jpg?raw=true',
+                            'Low': {
+                                    'name': 'SQUID_8a',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443689/heatmapoverlay_SQUID_8a_vehssz.mp4',
+                                    'Gaze Sequence': {
+                                                        'overall': '',
+                                                        'participant': [
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        ''
+                                                                        ]
+                                                    }
+                                    },
+                            'Medium': {
+                                    'name': 'SQUID_12c',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443695/heatmapoverlay_SQUID_12c_x7zaou.mp4',
+                                    'Gaze Sequence': {
+                                                        'overall': '',
+                                                        'participant': [
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        ''
+                                                                        ]
+                                                    }
+                                    },
+                            'High': {
+                                    'name': 'SQUID_6a',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443691/heatmapoverlay_SQUID_6a_wpmqec.mp4',
+                                    'Gaze Sequence': {
+                                                        'overall': '',
+                                                        'participant': ['',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '',
+                                                                        '']
+                                                    }
+                                    }
+                        }
+                    }]
+CLIP_NAMES = ['Shrek', 'Deep Blue', 'The Squid and the Whale']
 
 # === INITIALIZE SESSION STATE ===
 if 'page' not in st.session_state:
@@ -67,6 +259,246 @@ def add_summ_navigation():
         st.session_state['page'] = 'summ'
         st.rerun()
 
+def display_frame_by_frame(video_url):
+    """Display a video frame by frame with a slider control."""
+    try:
+        # Download the video from the URL
+        if video_url.startswith(('http://', 'https://')):
+            response = requests.get(video_url)
+            temp_file = tempfile.NamedTemporaryFile(delete=False, suffix='.mp4')
+            temp_file.write(response.content)
+            temp_file.close()
+            video_path = temp_file.name
+        else:
+            # If it's a local path
+            video_path = video_url
+        
+        # Open the video
+        cap = cv2.VideoCapture(video_path)
+        if not cap.isOpened():
+            st.error(f"Error opening video: {video_url}")
+            return
+        
+        # Get video properties
+        total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+        fps = cap.get(cv2.CAP_PROP_FPS)
+        
+        if total_frames <= 0:
+            st.error("Could not determine frame count")
+            return
+        
+        # Create a slider for frame selection
+        frame_idx = st.slider("Frame", 0, total_frames - 1, 0)
+        
+        # Get timestamp for the current frame
+        timestamp = frame_idx / fps
+        st.text(f"Time: {timestamp:.2f}s (Frame {frame_idx+1}/{total_frames})")
+        
+        # Read the selected frame
+        cap.set(cv2.CAP_PROP_POS_FRAMES, frame_idx)
+        ret, frame = cap.read()
+        
+        if ret:
+            # Convert BGR to RGB (OpenCV uses BGR, but Streamlit expects RGB)
+            frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            
+            # Display the frame
+            st.image(frame_rgb, caption=f"Frame {frame_idx+1}", use_column_width=True)
+        else:
+            st.error(f"Could not read frame {frame_idx}")
+        
+        # Add controls for playing a short sequence
+        col1, col2 = st.columns(2)
+        with col1:
+            play_frames = st.button("Play 30 Frames")
+        with col2:
+            play_speed = st.select_slider("Speed", options=["0.5x", "1x", "2x"], value="1x")
+        
+        # Play a sequence of frames when the button is clicked
+        if play_frames:
+            speed_factor = {"0.5x": 0.5, "1x": 1.0, "2x": 2.0}[play_speed]
+            frame_container = st.empty()
+            
+            for i in range(frame_idx, min(frame_idx + 30, total_frames)):
+                cap.set(cv2.CAP_PROP_POS_FRAMES, i)
+                ret, frame = cap.read()
+                if ret:
+                    frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                    frame_container.image(frame_rgb, caption=f"Frame {i+1}", use_column_width=True)
+                    time.sleep(1 / (fps * speed_factor))
+                else:
+                    break
+        
+        # Release the video capture
+        cap.release()
+        
+    except Exception as e:
+        st.error(f"Error displaying frame-by-frame view: {e}")
+        # Fallback to standard video player
+        st.write("Falling back to standard video player:")
+        st.video(video_url)
+
+def list_videos():
+    videos = [f for f in os.listdir(VIDEO_FOLDER) if f.endswith('.mp4')]
+    overall_video = [v for v in videos if 'overall' in v.lower()]
+    participant_videos = [v for v in videos if 'overall' not in v.lower()]
+    return overall_video[0] if overall_video else None, participant_videos
+
+def load_video(cloudinary_url):
+    # Download the video data
+    response = requests.get(cloudinary_url, stream=True)
+    response.raise_for_status()  # Raise an exception for bad status codes
+
+    # Create a temporary file to store the video
+    with tempfile.NamedTemporaryFile(delete=False) as temp_video:
+        for chunk in response.iter_content(chunk_size=8192):
+            if chunk:
+                temp_video.write(chunk)
+        temp_video_path = temp_video.name
+
+    # Open the temporary file with cv2.VideoCapture
+    cap = cv2.VideoCapture(temp_video_path)
+    frames = []
+    while True:
+        ret, frame = cap.read()
+        if not ret:
+            break
+        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        frames.append(frame)
+    cap.release()
+
+    # Delete the temporary file
+    os.unlink(temp_video_path)
+
+    return frames
+
+def display_frame_by_frame(video_url):
+    """Display a video frame by frame with a slider control."""
+    
+    # Create a unique key for this video in session state
+    video_key = f"frames_{hash(video_url)}"
+    
+    # Check if we already have frames loaded for this video
+    if video_key not in st.session_state:
+        try:
+            # Download the video from the URL
+            if video_url.startswith(('http://', 'https://')):
+                response = requests.get(video_url)
+                temp_file = tempfile.NamedTemporaryFile(delete=False, suffix='.mp4')
+                temp_file.write(response.content)
+                temp_file.close()
+                video_path = temp_file.name
+            else:
+                # If it's a local path
+                video_path = video_url
+            
+            # Open the video
+            cap = cv2.VideoCapture(video_path)
+            if not cap.isOpened():
+                st.error(f"Error opening video: {video_url}")
+                return
+            
+            # Get video properties
+            total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+            fps = cap.get(cv2.CAP_PROP_FPS)
+            
+            if total_frames <= 0:
+                st.error("Could not determine frame count")
+                return
+            
+            # Pre-load frames (using a reasonable number to avoid memory issues)
+            max_frames_to_load = min(total_frames, 300)  # Limit to 300 frames
+            
+            # Show loading message
+            loading_msg = st.empty()
+            loading_msg.info(f"Loading {max_frames_to_load} frames, please wait...")
+            
+            # Pre-load frames
+            frames = []
+            for i in range(max_frames_to_load):
+                cap.set(cv2.CAP_PROP_POS_FRAMES, i)
+                ret, frame = cap.read()
+                if ret:
+                    frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                    frames.append(frame_rgb)
+                else:
+                    break
+            
+            # Store frames and video info in session state
+            st.session_state[video_key] = {
+                "frames": frames,
+                "total_frames": total_frames,
+                "fps": fps
+            }
+            
+            # Clear loading message
+            loading_msg.empty()
+            
+            # Release the video capture
+            cap.release()
+            
+        except Exception as e:
+            st.error(f"Error loading video frames: {e}")
+            # Fallback to standard video player
+            st.write("Falling back to standard video player:")
+            st.video(video_url)
+            return
+    
+    # Get the stored frames and video info from session state
+    video_data = st.session_state[video_key]
+    frames = video_data["frames"]
+    total_frames = video_data["total_frames"]
+    fps = video_data["fps"]
+    
+    # Create a slider for frame selection
+    frame_idx = st.select_slider("Frame", 
+                            options=[i for i in range(len(frames)) if i % 5 == 0] + [len(frames)-1], 
+                            value=0)
+    
+    # Get timestamp for the current frame
+    timestamp = frame_idx / fps
+    st.text(f"Time: {timestamp:.2f}s (Frame {frame_idx}/{total_frames})")
+    
+    # Display frame container
+    frame_container = st.empty()
+    
+    # Display the selected frame (from pre-loaded frames)
+    if 0 <= frame_idx < len(frames):
+        frame_container.image(frames[frame_idx], caption=f"Frame {frame_idx}", use_container_width=True)
+    else:
+        st.error(f"Frame index out of range: {frame_idx}")
+    
+    # Add controls for playing a short sequence
+    col1, col2 , col3= st.columns([1, 1, 2])
+    with col1:
+        play_frames_45 = st.button("Play 45 Frames")
+    with col2:
+        play_frames_60 = st.button("Play 60 Frames")
+    with col3:
+        play_speed = st.select_slider("Speed", options=["0.5x", "1x", "2x"], value="1x")
+    
+    # Play a sequence of frames when the button is clicked
+    if play_frames_45:
+        speed_factor = {"0.5x": 0.5, "1x": 1.0, "2x": 2.0}[play_speed]
+
+        # Use the pre-loaded frames for playback
+        end_idx = min(frame_idx + 45, len(frames))
+        for i in range(frame_idx, end_idx, 1):  # Show every 5th frame
+            if 0 <= i < len(frames):
+                frame_container.image(frames[i], caption=f"Frame {i+1}", use_container_width=True)
+                time.sleep(1 / (fps * speed_factor))
+
+    elif play_frames_60:
+        speed_factor = {"0.5x": 0.5, "1x": 1.0, "2x": 2.0}[play_speed]
+
+        # Use the pre-loaded frames for playback
+        end_idx = min(frame_idx + 60, len(frames))
+        for i in range(frame_idx, end_idx, 1):  # Show every 5th frame
+            if 0 <= i < len(frames):
+                frame_container.image(frames[i], caption=f"Frame {i+1}", use_container_width=True)
+                time.sleep(1 / (fps * speed_factor))
+
+
 # === PAGE 1: Home (Clip Selection) ===
 # In your home_page function, when a movie is selected:
 def home_page():
@@ -82,7 +514,7 @@ def home_page():
     cols = st.columns(3)
     for i, clip_name in enumerate(CLIP_NAMES):
         # Use unique keys with session_id to prevent duplication
-        img_path = CLIP_VIDEO_MAPPING[clip_name]["ThumbnailURL"]
+        img_path = CLIP_VIDEO_MAPPING[i][clip_name]['Thumbnail']
 
         with cols[i % 3]:
             # Your image display code...
@@ -105,6 +537,12 @@ def home_page():
 def detail_page():
     """Displays the detail page for the selected clip with different visualization options."""
     selected_clip = st.session_state.get('selected_clip', '')
+    if selected_clip == 'Shrek':
+        i = 0
+    elif selected_clip == 'Deep Blue':
+        i = 1
+    elif selected_clip == 'The Squid and the Whale':
+        i = 2
     
     # Initialize light condition if not already set
     if 'light_condition' not in st.session_state:
@@ -127,10 +565,10 @@ def detail_page():
     )
 
     # Process the selection
-    if light_condition and light_condition.lower() != st.session_state.get('light_condition', ''):
-        st.session_state['light_condition'] = light_condition.lower()
+    if light_condition and light_condition != st.session_state.get('light_condition', ''):
+        st.session_state['light_condition'] = light_condition
         st.rerun()
-    
+
     # Display current light condition
     if st.session_state['light_condition']:
         st.info(f"Currently viewing: {selected_clip} under {st.session_state['light_condition']} light conditions")
@@ -169,10 +607,10 @@ def detail_page():
         st.header(f"Gaze Heatmap - {light_condition.upper()} Light")
         
         # Different heatmap visualization based on light condition
-        if light_condition == 'low':
+        if light_condition == 'Low':
             # Import heatmap for low light
-            clip_name = CLIP_VIDEO_MAPPING[selected_clip]['Low'][0]
-            heatmap_url = (CLIP_VIDEO_MAPPING[selected_clip]['Low'][1]).strip("HEATMAPURL:")
+            clip_name = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['name']
+            heatmap_url = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['Heatmap']
 
             try:
                 st.video(heatmap_url)    
@@ -182,10 +620,10 @@ def detail_page():
                 st.error(f"Error displaying video: {e}")
 
 
-        elif light_condition == 'medium':
+        elif light_condition == 'Medium':
             # Import heatmap for medium light
-            clip_name = CLIP_VIDEO_MAPPING[selected_clip]['Medium'][0]
-            heatmap_url = (CLIP_VIDEO_MAPPING[selected_clip]['Medium'][1]).strip("HEATMAPURL:")
+            clip_name = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['name']
+            heatmap_url = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['Heatmap']
 
             try:
                 st.video(heatmap_url)    
@@ -196,8 +634,8 @@ def detail_page():
 
         else:  # high light
             # Import heatmap for high light
-            clip_name = CLIP_VIDEO_MAPPING[selected_clip]['High'][0]
-            heatmap_url = (CLIP_VIDEO_MAPPING[selected_clip]['High'][1]).strip("HEATMAPURL:")
+            clip_name = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['name']
+            heatmap_url = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['Heatmap']
 
             try:
                 st.video(heatmap_url)    
@@ -208,40 +646,54 @@ def detail_page():
         
     
     with tab3:
-        st.header(f"Gaze Sequence - {light_condition.upper()} Light")
-        st.write("⏰Wait for the data to fill here🙌🏻🥶🫱🏻‍🫲🏾")
+        st.header(f"Gaze Sequence - {light_condition} Light")
         
-        # # Different gaze data based on light condition
-        # if light_condition == 'low':
-        #     # More concentrated gaze points for low light
-        #     x_pos = [random.randint(200, 300) for _ in range(20)]
-        #     y_pos = [random.randint(100, 200) for _ in range(20)]
-        # elif light_condition == 'medium':
-        #     # Moderate spread for medium light
-        #     x_pos = [random.randint(150, 350) for _ in range(20)]
-        #     y_pos = [random.randint(75, 225) for _ in range(20)]
-        # else:  # high light
-        #     # Wider spread for high light
-        #     x_pos = [random.randint(100, 400) for _ in range(20)]
-        #     y_pos = [random.randint(50, 250) for _ in range(20)]
-            
-        # gaze_data = pd.DataFrame({
-        #     'Time': list(range(20)),
-        #     'X_Position': x_pos,
-        #     'Y_Position': y_pos
-        # })
-        
-        # st.dataframe(gaze_data)
-        
-        # st.scatter_chart(
-        #     gaze_data,
-        #     x='X_Position',
-        #     y='Y_Position'
-        # )
+        if 'path_type' not in st.session_state:
+            st.session_state['path_type'] = None
 
-    # Add some space before the footer
-    # st.markdown("<br><br>", unsafe_allow_html=True)
-        
+        # Path type selection using segmented control
+        path_type = st.segmented_control(
+            label = 'Path Type',
+            options=["Overall", "Individual"],
+            key="path_type_segmented"
+        )
+
+        # Process the selection
+        if path_type and path_type != st.session_state.get('path_type', ''):
+            st.session_state['path_type'] = path_type
+            st.rerun()
+
+        # Display current light condition
+        if not st.session_state['path_type']:
+            st.warning("Please select a type to view the analysis")
+
+        if path_type == 'Overall':
+            gaze_path = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['Gaze Sequence']['overall']
+
+            display_frame_by_frame(gaze_path)
+
+
+        elif path_type == 'Individual':
+            gaze_path_list = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['Gaze Sequence']['participant']
+            n = len(gaze_path_list)
+            abc = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O']
+            participant_lst = [f"Participant {abc[i]}" for i in range(n)]
+            participant = st.selectbox(
+                                        "Who do you want to watch?",
+                                        (participant_lst),
+                                        index=None,
+                                        placeholder="Select Participant..."
+                                    )
+            if participant:
+                st.write("You selected:", participant)
+                parti_no = abc.index(participant[-1])
+                gaze_path = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['Gaze Sequence']['participant'][parti_no]
+
+                display_frame_by_frame(gaze_path)
+            
+            else:
+                st.warning("Please select participant")
+
     # Create a footer container
     footer_container = st.container()
         
@@ -260,7 +712,7 @@ def detail_page():
             if st.button("View Summary", key="summary_btn", use_container_width=True):
                 st.session_state['page'] = 'summ'
                 st.rerun()
-
+        
 # === PAGE 3: Clip Detail ===
 def summ_page():
     """Displays a summary page with embedded Tableau dashboards."""
