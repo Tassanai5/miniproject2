@@ -261,6 +261,7 @@ def summ_page():
     
     # Description
     st.write("This page shows comprehensive analysis dashboards created in Tableau.")
+    st.write("But we are still waiting for the data to fill here🙌🏻😘🫱🏻‍🫲🏾")
     
     # # Create tabs for different dashboards
     # tab1, tab2 = st.tabs(["Overall Summary", "Detailed Metrics"])
