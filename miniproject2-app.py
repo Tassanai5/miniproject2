@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
+import time
 
 # === CONFIGURATION ===
 NV_ROOT = '/Users/Tassanai/Library/CloudStorage/OneDrive-ChulalongkornUniversity/University/3Junior/Second Semester/2603278 INFO VISUAL/miniproject 2/dataset/NV'
