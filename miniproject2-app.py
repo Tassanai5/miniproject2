@@ -8,12 +8,14 @@ import tempfile
 import os
 
 # === CONFIGURATION ===
-NV_ROOT = '/Users/Tassanai/Library/CloudStorage/OneDrive-ChulalongkornUniversity/University/3Junior/Second Semester/2603278 INFO VISUAL/miniproject 2/dataset/NV'
 CLIP_VIDEO_MAPPING =[{'Shrek': 
                         {
                             'Thumbnail': 'https://github.com/Tassanai5/material-miniproject2/blob/main/image/Shrek_Thumbnail.jpg?raw=true',
                             'Low': {
                                     'name': 'SHREK_10a',
+                                    'clip_index': 22,
+                                    'frame_count': 720,
+                                    'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530570/SHREK_10a_c_nxfopw.mov',
                                     'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443658/heatmapoverlay_SHREK_10a_s0qq7j.mp4',
                                     'Gaze Sequence': {
                                                         'overall': '',
@@ -35,6 +37,9 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     },
                             'Medium': {
                                     'name': 'SHREK_3b',
+                                    'clip_index': 28,
+                                    'frame_count': 720,
+                                    'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530570/SHREK_3b_c_qg81tt.mov',
                                     'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443668/heatmapoverlay_SHREK_3b_lqcyyc.mp4',
                                     'Gaze Sequence': {
                                                         'overall': '',
@@ -55,6 +60,9 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     },
                             'High': {
                                     'name': 'SHREK_3a',
+                                    'clip_index': 27,
+                                    'frame_count': 720,
+                                    'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530573/SHREK_3a_c_ibscr9.mov',
                                     'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443692/heatmapoverlay_SHREK_3a_dgrkux.mp4',
                                     'Gaze Sequence': {
                                                         'overall': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744471343/shrek_overall_hukdzt.mp4',
@@ -79,6 +87,9 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                             'Thumbnail': 'https://github.com/Tassanai5/material-miniproject2/blob/main/image/Deep_Blue_Thumbnail.jpg?raw=true',
                             'Low': {
                                     'name': 'DEEPB_9c',
+                                    'clip_index': 49,
+                                    'frame_count': 720,
+                                    'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530559/DEEPB_9c_c_rhhepr.mov',
                                     'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443688/heatmapoverlay_DEEPB_9c_uwtbxs.mp4',
                                     'Gaze Sequence': {
                                                         'overall': '',
@@ -100,6 +111,9 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     },
                             'Medium': {
                                     'name': 'DEEPB_5b',
+                                    'clip_index': 45,
+                                    'frame_count': 719,
+                                    'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530556/DEEPB_5b_c_nyvoao.mov',
                                     'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443488/heatmapoverlay_DEEPB_5b_p1erof.mp4',
                                     'Gaze Sequence': {
                                                         'overall': '',
@@ -120,6 +134,9 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     },
                             'High': {
                                     'name': 'DEEPB_11a',
+                                    'clip_index': 41,
+                                    'frame_count': 720,
+                                    'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530582/DEEPB_11a_c_kw5icz.mov',
                                     'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443720/heatmapoverlay_DEEPB_11a_packhk.mp4',
                                     'Gaze Sequence': {
                                                         'overall': '',
@@ -144,6 +161,9 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                             'Thumbnail': 'https://github.com/Tassanai5/material-miniproject2/blob/main/image/The_Squid_and_the_Whale_Thumbnail.jpg?raw=true',
                             'Low': {
                                     'name': 'SQUID_8a',
+                                    'clip_index': 196,
+                                    'frame_count': 720,
+                                    'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530575/SQUID_8a_c_pq5bxy.mov',
                                     'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443689/heatmapoverlay_SQUID_8a_vehssz.mp4',
                                     'Gaze Sequence': {
                                                         'overall': '',
@@ -165,6 +185,9 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     },
                             'Medium': {
                                     'name': 'SQUID_12c',
+                                    'clip_index': 192,
+                                    'frame_count': 720,
+                                    'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530575/SQUID_12c_c_xjxogc.mov',
                                     'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443695/heatmapoverlay_SQUID_12c_x7zaou.mp4',
                                     'Gaze Sequence': {
                                                         'overall': '',
@@ -185,6 +208,9 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     },
                             'High': {
                                     'name': 'SQUID_6a',
+                                    'clip_index': 195,
+                                    'frame_count': 720,
+                                    'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530577/SQUID_6a_c_vpq0nm.mov',
                                     'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443691/heatmapoverlay_SQUID_6a_wpmqec.mp4',
                                     'Gaze Sequence': {
                                                         'overall': '',
@@ -205,6 +231,7 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                         }
                     }]
 CLIP_NAMES = ['Shrek', 'Deep Blue', 'The Squid and the Whale']
+DATA_PUPIL_URL = 'https://media.githubusercontent.com/media/Tassanai5/material-miniproject2/refs/heads/main/pupil_size_data.csv'
 
 # === INITIALIZE SESSION STATE ===
 if 'page' not in st.session_state:
@@ -259,245 +286,96 @@ def add_summ_navigation():
         st.session_state['page'] = 'summ'
         st.rerun()
 
-def display_frame_by_frame(video_url):
-    """Display a video frame by frame with a slider control."""
-    try:
-        # Download the video from the URL
-        if video_url.startswith(('http://', 'https://')):
-            response = requests.get(video_url)
-            temp_file = tempfile.NamedTemporaryFile(delete=False, suffix='.mp4')
-            temp_file.write(response.content)
-            temp_file.close()
-            video_path = temp_file.name
+def display_frame(video_url, frame_count, selected_video, gaze_data, tag):
+    # Store the video capture object in session state to avoid reloading it
+    if 'video_cap' not in st.session_state or st.session_state.current_video != video_url:
+        st.session_state.video_cap = cv2.VideoCapture(video_url)
+        st.session_state.current_video = video_url
+        # Get fps for playback
+        st.session_state.fps = st.session_state.video_cap.get(cv2.CAP_PROP_FPS)
+
+    st.write(f"Now playing: {selected_video}🎥")
+
+    # Create a slider for frame selection
+    frame_idx = st.select_slider(
+        f"Frame{tag}", 
+        options=[i for i in range(frame_count) if i % 5 == 0] + [frame_count-1],
+        value=0
+    )
+    
+    # Get the selected frame
+    st.session_state.video_cap.set(cv2.CAP_PROP_POS_FRAMES, frame_idx)
+    ret, frame = st.session_state.video_cap.read()
+    
+    # Create a container for frame display that will be used for both static display and playback
+    frame_container = st.empty()
+    
+    if 'PupilSize' in tag:
+        if ret and frame is not None:
+            # Use the container for initial frame display
+            frame_container.image(frame, channels="BGR", caption=f"Frame {frame_idx}", use_container_width=True)
+
+            if 'frame_idx' in gaze_data.columns:
+                gaze_frame = gaze_data[gaze_data['frame_idx'] == frame_idx]
+                avg_pupil_area = gaze_frame['pupil_size'].mean() if not gaze_frame.empty else 505
+            else:
+                avg_pupil_area = 0
+                
+            st.metric("Average Pupil Area", f"{avg_pupil_area:.2f}")
         else:
-            # If it's a local path
-            video_path = video_url
-        
-        # Open the video
-        cap = cv2.VideoCapture(video_path)
-        if not cap.isOpened():
-            st.error(f"Error opening video: {video_url}")
-            return
-        
-        # Get video properties
-        total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-        fps = cap.get(cv2.CAP_PROP_FPS)
-        
-        if total_frames <= 0:
-            st.error("Could not determine frame count")
-            return
-        
-        # Create a slider for frame selection
-        frame_idx = st.slider("Frame", 0, total_frames - 1, 0)
-        
-        # Get timestamp for the current frame
-        timestamp = frame_idx / fps
-        st.text(f"Time: {timestamp:.2f}s (Frame {frame_idx+1}/{total_frames})")
-        
-        # Read the selected frame
-        cap.set(cv2.CAP_PROP_POS_FRAMES, frame_idx)
-        ret, frame = cap.read()
-        
-        if ret:
-            # Convert BGR to RGB (OpenCV uses BGR, but Streamlit expects RGB)
-            frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            st.warning("❌ Could not load this frame. It may not exist at this index.")
+
+    elif 'GazeSequence' in tag:
+        if ret and frame is not None:
+            # Use the container for initial frame display
+            frame_container.image(frame, channels="BGR", caption=f"Frame {frame_idx}", use_container_width=True)
+        else:
+            st.warning("❌ Could not load this frame. It may not exist at this index.")
             
-            # Display the frame
-            st.image(frame_rgb, caption=f"Frame {frame_idx+1}", use_column_width=True)
-        else:
-            st.error(f"Could not read frame {frame_idx}")
-        
         # Add controls for playing a short sequence
-        col1, col2 = st.columns(2)
+        col1, col2, col3 = st.columns([1, 1, 2])
         with col1:
-            play_frames = st.button("Play 30 Frames")
+            play_frames_65 = st.button("Play 65 Frames")
         with col2:
+            play_frames_100 = st.button("Play 100 Frames")
+        with col3:
             play_speed = st.select_slider("Speed", options=["0.5x", "1x", "2x"], value="1x")
         
         # Play a sequence of frames when the button is clicked
-        if play_frames:
+        if play_frames_65 or play_frames_100:
             speed_factor = {"0.5x": 0.5, "1x": 1.0, "2x": 2.0}[play_speed]
-            frame_container = st.empty()
+            num_frames = 65 if play_frames_65 else 100
+            fps = st.session_state.fps
             
-            for i in range(frame_idx, min(frame_idx + 30, total_frames)):
-                cap.set(cv2.CAP_PROP_POS_FRAMES, i)
-                ret, frame = cap.read()
-                if ret:
-                    frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-                    frame_container.image(frame_rgb, caption=f"Frame {i+1}", use_column_width=True)
-                    time.sleep(1 / (fps * speed_factor))
-                else:
-                    break
-        
-        # Release the video capture
-        cap.release()
-        
-    except Exception as e:
-        st.error(f"Error displaying frame-by-frame view: {e}")
-        # Fallback to standard video player
-        st.write("Falling back to standard video player:")
-        st.video(video_url)
-
-def list_videos():
-    videos = [f for f in os.listdir(VIDEO_FOLDER) if f.endswith('.mp4')]
-    overall_video = [v for v in videos if 'overall' in v.lower()]
-    participant_videos = [v for v in videos if 'overall' not in v.lower()]
-    return overall_video[0] if overall_video else None, participant_videos
-
-def load_video(cloudinary_url):
-    # Download the video data
-    response = requests.get(cloudinary_url, stream=True)
-    response.raise_for_status()  # Raise an exception for bad status codes
-
-    # Create a temporary file to store the video
-    with tempfile.NamedTemporaryFile(delete=False) as temp_video:
-        for chunk in response.iter_content(chunk_size=8192):
-            if chunk:
-                temp_video.write(chunk)
-        temp_video_path = temp_video.name
-
-    # Open the temporary file with cv2.VideoCapture
-    cap = cv2.VideoCapture(temp_video_path)
-    frames = []
-    while True:
-        ret, frame = cap.read()
-        if not ret:
-            break
-        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        frames.append(frame)
-    cap.release()
-
-    # Delete the temporary file
-    os.unlink(temp_video_path)
-
-    return frames
-
-def display_frame_by_frame(video_url):
-    """Display a video frame by frame with a slider control."""
-    
-    # Create a unique key for this video in session state
-    video_key = f"frames_{hash(video_url)}"
-    
-    # Check if we already have frames loaded for this video
-    if video_key not in st.session_state:
-        try:
-            # Download the video from the URL
-            if video_url.startswith(('http://', 'https://')):
-                response = requests.get(video_url)
-                temp_file = tempfile.NamedTemporaryFile(delete=False, suffix='.mp4')
-                temp_file.write(response.content)
-                temp_file.close()
-                video_path = temp_file.name
-            else:
-                # If it's a local path
-                video_path = video_url
+            # Calculate end index
+            end_idx = min(frame_idx + num_frames, frame_count)
             
-            # Open the video
-            cap = cv2.VideoCapture(video_path)
-            if not cap.isOpened():
-                st.error(f"Error opening video: {video_url}")
-                return
-            
-            # Get video properties
-            total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-            fps = cap.get(cv2.CAP_PROP_FPS)
-            
-            if total_frames <= 0:
-                st.error("Could not determine frame count")
-                return
-            
-            # Pre-load frames (using a reasonable number to avoid memory issues)
-            max_frames_to_load = min(total_frames, 300)  # Limit to 300 frames
-            
-            # Show loading message
-            loading_msg = st.empty()
-            loading_msg.info(f"Loading {max_frames_to_load} frames, please wait...")
-            
-            # Pre-load frames
-            frames = []
-            for i in range(max_frames_to_load):
-                cap.set(cv2.CAP_PROP_POS_FRAMES, i)
-                ret, frame = cap.read()
-                if ret:
-                    frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-                    frames.append(frame_rgb)
-                else:
-                    break
-            
-            # Store frames and video info in session state
-            st.session_state[video_key] = {
-                "frames": frames,
-                "total_frames": total_frames,
-                "fps": fps
-            }
-            
-            # Clear loading message
-            loading_msg.empty()
-            
-            # Release the video capture
-            cap.release()
-            
-        except Exception as e:
-            st.error(f"Error loading video frames: {e}")
-            # Fallback to standard video player
-            st.write("Falling back to standard video player:")
-            st.video(video_url)
-            return
-    
-    # Get the stored frames and video info from session state
-    video_data = st.session_state[video_key]
-    frames = video_data["frames"]
-    total_frames = video_data["total_frames"]
-    fps = video_data["fps"]
-    
-    # Create a slider for frame selection
-    frame_idx = st.select_slider("Frame", 
-                            options=[i for i in range(len(frames)) if i % 5 == 0] + [len(frames)-1], 
-                            value=0)
-    
-    # Get timestamp for the current frame
-    timestamp = frame_idx / fps
-    st.text(f"Time: {timestamp:.2f}s (Frame {frame_idx}/{total_frames})")
-    
-    # Display frame container
-    frame_container = st.empty()
-    
-    # Display the selected frame (from pre-loaded frames)
-    if 0 <= frame_idx < len(frames):
-        frame_container.image(frames[frame_idx], caption=f"Frame {frame_idx}", use_container_width=True)
+            # Play the frames using the same container
+            for i in range(frame_idx, end_idx):
+                # Seek to the frame
+                st.session_state.video_cap.set(cv2.CAP_PROP_POS_FRAMES, i)
+                ret, current_frame = st.session_state.video_cap.read()
+                
+                if ret and current_frame is not None:
+                    # Update the same container with each new frame
+                    frame_container.image(current_frame, channels="BGR", 
+                                         caption=f"Time {i/fps:.2f}s | Frame {i}", 
+                                         use_container_width=True)
+                    # time.sleep(1 / (16 * fps * speed_factor))
     else:
-        st.error(f"Frame index out of range: {frame_idx}")
-    
-    # Add controls for playing a short sequence
-    col1, col2 , col3= st.columns([1, 1, 2])
-    with col1:
-        play_frames_45 = st.button("Play 45 Frames")
-    with col2:
-        play_frames_60 = st.button("Play 60 Frames")
-    with col3:
-        play_speed = st.select_slider("Speed", options=["0.5x", "1x", "2x"], value="1x")
-    
-    # Play a sequence of frames when the button is clicked
-    if play_frames_45:
-        speed_factor = {"0.5x": 0.5, "1x": 1.0, "2x": 2.0}[play_speed]
+        # Default case for other tag types
+        if ret and frame is not None:
+            # Use the container for initial frame display
+            frame_container.image(frame, channels="BGR", caption=f"Frame {frame_idx}", use_container_width=True)
+        else:
+            st.warning("❌ Could not load this frame. It may not exist at this index.")
 
-        # Use the pre-loaded frames for playback
-        end_idx = min(frame_idx + 45, len(frames))
-        for i in range(frame_idx, end_idx, 1):  # Show every 5th frame
-            if 0 <= i < len(frames):
-                frame_container.image(frames[i], caption=f"Frame {i+1}", use_container_width=True)
-                time.sleep(1 / (fps * speed_factor))
+@st.cache_data
+def load_data(url, index):
+    df = pd.read_csv(url)
+    df = df[df['movie_index'] == index]
 
-    elif play_frames_60:
-        speed_factor = {"0.5x": 0.5, "1x": 1.0, "2x": 2.0}[play_speed]
-
-        # Use the pre-loaded frames for playback
-        end_idx = min(frame_idx + 60, len(frames))
-        for i in range(frame_idx, end_idx, 1):  # Show every 5th frame
-            if 0 <= i < len(frames):
-                frame_container.image(frames[i], caption=f"Frame {i+1}", use_container_width=True)
-                time.sleep(1 / (fps * speed_factor))
-
+    return df
 
 # === PAGE 1: Home (Clip Selection) ===
 # In your home_page function, when a movie is selected:
@@ -589,64 +467,34 @@ def detail_page():
     light_condition = st.session_state['light_condition']
     
     with tab1:
-        st.header(f"Pupil Size Analysis - {light_condition.upper()} Light")
-        st.write("⏰Wait for the data to fill here🙌🏻🥶🫱🏻‍🫲🏾")
-        
-        # # Generate different data based on light condition
-        # if light_condition == 'low':
-        #     pupil_data = [random.randint(15, 25) for _ in range(100)]  # Smaller pupils in low light
-        # elif light_condition == 'medium':
-        #     pupil_data = [random.randint(20, 30) for _ in range(100)]  # Medium-sized pupils
-        # else:  # high light
-        #     pupil_data = [random.randint(25, 40) for _ in range(100)]  # Larger pupils in high light
-            
-        # st.line_chart({"Pupil Diameter": pupil_data})
-        
+        st.header(f"Pupil Size Analysis - {light_condition} Light Condition🔦")
+        target_clip_index = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['clip_index']
+
+        video_path = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['Original']
+        frame_count = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['frame_count']
+        selected_video = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['name']
+        gaze_data = load_data(DATA_PUPIL_URL, target_clip_index)
+
+        display_frame(video_path, frame_count, selected_video, gaze_data, tag = 'PupilSize')
     
     with tab2:
-        st.header(f"Gaze Heatmap - {light_condition.upper()} Light")
-        
-        # Different heatmap visualization based on light condition
-        if light_condition == 'Low':
-            # Import heatmap for low light
-            clip_name = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['name']
-            heatmap_url = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['Heatmap']
+        st.header(f"Gaze Heatmap - {light_condition.upper()} Light Condition🔦")
 
-            try:
-                st.video(heatmap_url)    
-            except FileNotFoundError:
-                st.error(f"Video file not found: {heatmap_url}")
-            except Exception as e:
-                st.error(f"Error displaying video: {e}")
+        # Import heatmap for light conditions
+        clip_name = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['name']
+        heatmap_url = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['Heatmap']
 
+        st.write(f"Now playing: {clip_name}🎥")
 
-        elif light_condition == 'Medium':
-            # Import heatmap for medium light
-            clip_name = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['name']
-            heatmap_url = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['Heatmap']
-
-            try:
-                st.video(heatmap_url)    
-            except FileNotFoundError:
-                st.error(f"Video file not found: {heatmap_url}")
-            except Exception as e:
-                st.error(f"Error displaying video: {e}")
-
-        else:  # high light
-            # Import heatmap for high light
-            clip_name = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['name']
-            heatmap_url = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['Heatmap']
-
-            try:
-                st.video(heatmap_url)    
-            except FileNotFoundError:
-                st.error(f"Video file not found: {heatmap_url}")
-            except Exception as e:
-                st.error(f"Error displaying video: {e}")
-        
+        try:
+            st.video(heatmap_url)    
+        except FileNotFoundError:
+            st.error(f"Video file not found: {heatmap_url}")
+        except Exception as e:
+            st.error(f"Error displaying video: {e}")
     
     with tab3:
-        st.header(f"Gaze Sequence - {light_condition} Light")
+        st.header(f"Gaze Sequence - {light_condition} Light Condition🔦")
         
         if 'path_type' not in st.session_state:
             st.session_state['path_type'] = None
@@ -668,9 +516,14 @@ def detail_page():
             st.warning("Please select a type to view the analysis")
 
         if path_type == 'Overall':
-            gaze_path = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['Gaze Sequence']['overall']
 
-            display_frame_by_frame(gaze_path)
+            tag = 'GazeSequenceOverall'
+            video_path = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['Gaze Sequence']['overall']
+            frame_count = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['frame_count']
+            selected_video = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['name']
+            gaze_data = load_data(DATA_PUPIL_URL, target_clip_index)
+
+            display_frame(video_path, frame_count, selected_video, gaze_data, tag)
 
 
         elif path_type == 'Individual':
@@ -687,9 +540,14 @@ def detail_page():
             if participant:
                 st.write("You selected:", participant)
                 parti_no = abc.index(participant[-1])
-                gaze_path = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['Gaze Sequence']['participant'][parti_no]
 
-                display_frame_by_frame(gaze_path)
+                tag = 'GazeSequenceIndividual'
+                video_path = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['Gaze Sequence']['participant'][parti_no]
+                frame_count = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['frame_count']
+                selected_video = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['name']
+                gaze_data = load_data(DATA_PUPIL_URL, target_clip_index)
+
+                display_frame(video_path, frame_count, selected_video, gaze_data, tag)
             
             else:
                 st.warning("Please select participant")
