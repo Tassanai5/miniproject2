@@ -320,12 +320,46 @@ def display_frame(video_url, frame_count, selected_video, tag, gaze_data = None)
     # Create time markers every second, plus the end time
     time_markers = [i for i in range(int(duration) + 1)] + ([round(duration, 0)] if duration % 1 > 0 else [])
     
-    # Create a slider for time selection (in seconds)
-    time_sec = st.select_slider(
-        f"Time (seconds){tag}", 
-        options=time_markers,
-        value=0
-    )
+    # Create a unique session state key for this tag
+    time_state_key = f"current_time_{tag}"
+    
+    # Create a session state to store the current time if it doesn't exist
+    if time_state_key not in st.session_state:
+        st.session_state[time_state_key] = 0
+
+    col1, col2, col3 = st.columns([6, 2, 2])
+
+    # Define button callbacks
+    def move_backward():
+        current_index = time_markers.index(st.session_state[time_state_key]) if st.session_state[time_state_key] in time_markers else 0
+        if current_index > 0:
+            st.session_state[time_state_key] = time_markers[current_index - 1]
+
+    def move_forward():
+        current_index = time_markers.index(st.session_state[time_state_key]) if st.session_state[time_state_key] in time_markers else 0
+        if current_index < len(time_markers) - 1:
+            st.session_state[time_state_key] = time_markers[current_index + 1]
+
+    with col1:
+        # Create a slider for time selection (in seconds)
+        time_sec = st.select_slider(
+            f"Time (seconds){tag}", 
+            options=time_markers,
+            value=st.session_state[time_state_key],
+            key=f"time_slider_{tag}"
+        )
+        # Update session state when slider changes
+        st.session_state[time_state_key] = time_sec
+
+    with col2:
+        if st.button('◀️', use_container_width=True, key=f'last_second_{tag}'):
+            move_backward()
+            st.rerun()
+
+    with col3:
+        if st.button('▶️', use_container_width=True, key=f'next_second_{tag}'):
+            move_forward()
+            st.rerun()
     
     # Convert time to frame index
     frame_idx = int(time_sec * fps)
@@ -372,38 +406,68 @@ def display_frame(video_url, frame_count, selected_video, tag, gaze_data = None)
             st.warning("❌ Could not load this frame. It may not exist at this index.")
             
         # Add controls for playing a short sequence
-        col1, col2, col3 = st.columns([1, 1, 2])
-        with col1:
-            play_seconds_2 = st.button("Play 2 Seconds")
+        col1, col2, col3 = st.columns([2, 1, 1])
         with col2:
-            play_seconds_5 = st.button("Play 5 Seconds")
+            play_seconds_2 = st.button("Play 2 Seconds", key=f"play_2s_{tag}")
         with col3:
-            play_speed = st.select_slider("Speed", options=["0.5x", "1x", "2x"], value="1x")
-        
+            play_seconds_5 = st.button("Play 5 Seconds", key=f"play_5s_{tag}")
+        with col1:
+            play_speed = st.select_slider("Speed", options=["0.5x", "1x", "2x"], value="1x", key=f"speed_{tag}")
+
         # Play a sequence of frames when the button is clicked
         if play_seconds_2 or play_seconds_5:
             speed_factor = {"0.5x": 0.5, "1x": 1.0, "2x": 2.0}[play_speed]
             seconds_to_play = 2 if play_seconds_2 else 5
-            frames_to_play = int(seconds_to_play * fps)
             
-            # Calculate end index
-            end_idx = min(frame_idx + frames_to_play, frame_count)
+            # Calculate the starting and ending time in seconds
+            start_time = time_sec
+            end_time = min(start_time + seconds_to_play, max(time_markers))
+            
+            # Calculate how many frames we need to show for smooth playback
+            total_frames_to_play = int(seconds_to_play * fps / speed_factor)
+            time_increment = seconds_to_play / total_frames_to_play
             
             # Play the frames using the same container
-            for i in range(frame_idx, end_idx):
+            current_time = start_time
+            for _ in range(total_frames_to_play):
+                if current_time > end_time:
+                    break
+                    
+                # Calculate the frame index from the current time
+                current_frame_idx = int(current_time * fps)
+                
                 # Seek to the frame
-                st.session_state.video_cap.set(cv2.CAP_PROP_POS_FRAMES, i)
+                st.session_state.video_cap.set(cv2.CAP_PROP_POS_FRAMES, current_frame_idx)
                 ret, current_frame = st.session_state.video_cap.read()
                 
                 if ret and current_frame is not None:
-                    # Calculate current time from frame index
-                    current_time = i / fps
-                    
                     # Update the same container with each new frame
                     frame_container.image(current_frame, channels="BGR", 
-                                         caption=f"Time: {current_time:.2f}s (Frame {i})", 
-                                         use_container_width=True)
-                    # time.sleep(1 / (16 * fps * speed_factor))
+                                        caption=f"Time: {current_time:.2f}s (Frame {current_frame_idx})", 
+                                        use_container_width=True)
+                    
+                    # If PupilSize is in tag, calculate and display average pupil size for this time
+                    if 'PupilSize' in tag and 'elapsed' in gaze_data.columns:
+                        # Round the current time to match with data points
+                        rounded_time = round(current_time)
+                        
+                        # Get data points with elapsed time matching the rounded time
+                        time_data = gaze_data[(gaze_data['elapsed'] >= rounded_time - 0.5) & 
+                                            (gaze_data['elapsed'] < rounded_time + 0.5)]
+                        avg_pupil_area = time_data['pupil_size'].mean() if not time_data.empty else 505
+                        
+                        st.metric("Average Pupil Area", f"{avg_pupil_area:.2f}")
+                        
+                # Increment time based on the speed factor
+                current_time += time_increment * speed_factor
+                
+                # Add a small delay to control the playback speed
+                time.sleep(0.05 / speed_factor)
+            
+            # After playback, update the slider to the end position
+            # This requires rerunning the app, so we store the end time in session state
+            st.session_state[time_state_key] = end_time
+            st.rerun()
     else:
         # Default case for other tag types
         if ret and frame is not None:
