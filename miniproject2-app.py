@@ -231,7 +231,7 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                         }
                     }]
 CLIP_NAMES = ['Shrek', 'Deep Blue', 'The Squid and the Whale']
-DATA_PUPIL_URL = 'https://media.githubusercontent.com/media/Tassanai5/material-miniproject2/refs/heads/main/pupil_size_data.csv'
+DATA_PUPIL_URL = 'https://media.githubusercontent.com/media/Tassanai5/material-miniproject2/refs/heads/main/pupil_size.csv'
 
 # === INITIALIZE SESSION STATE ===
 if 'page' not in st.session_state:
@@ -286,22 +286,39 @@ def add_summ_navigation():
         st.session_state['page'] = 'summ'
         st.rerun()
 
-def display_frame(video_url, frame_count, selected_video, gaze_data, tag):
+def display_frame(video_url, frame_count, selected_video, tag, gaze_data = None):
     # Store the video capture object in session state to avoid reloading it
     if 'video_cap' not in st.session_state or st.session_state.current_video != video_url:
         st.session_state.video_cap = cv2.VideoCapture(video_url)
         st.session_state.current_video = video_url
         # Get fps for playback
         st.session_state.fps = st.session_state.video_cap.get(cv2.CAP_PROP_FPS)
+        if st.session_state.fps <= 0:
+            # Default to a standard fps if we couldn't read it correctly
+            st.session_state.fps = 30.0
+            st.warning("Could not detect video frame rate. Using 30 FPS as default.")
+        # Get total duration in seconds
+        st.session_state.duration = frame_count / st.session_state.fps
 
     st.write(f"Now playing: {selected_video}🎥")
 
-    # Create a slider for frame selection
-    frame_idx = st.select_slider(
-        f"Frame{tag}", 
-        options=[i for i in range(frame_count) if i % 5 == 0] + [frame_count-1],
+    # Calculate total duration and create time markers
+    duration = st.session_state.duration
+    fps = st.session_state.fps
+    
+    # Create time markers every second, plus the end time
+    time_markers = [i for i in range(int(duration) + 1)] + ([round(duration, 0)] if duration % 1 > 0 else [])
+    
+    # Create a slider for time selection (in seconds)
+    time_sec = st.select_slider(
+        f"Time (seconds){tag}", 
+        options=time_markers,
         value=0
     )
+    
+    # Convert time to frame index
+    frame_idx = int(time_sec * fps)
+    frame_idx = min(frame_idx, frame_count - 1)  # Ensure frame index doesn't exceed total frames
     
     # Get the selected frame
     st.session_state.video_cap.set(cv2.CAP_PROP_POS_FRAMES, frame_idx)
@@ -313,13 +330,22 @@ def display_frame(video_url, frame_count, selected_video, gaze_data, tag):
     if 'PupilSize' in tag:
         if ret and frame is not None:
             # Use the container for initial frame display
-            frame_container.image(frame, channels="BGR", caption=f"Frame {frame_idx}", use_container_width=True)
+            frame_container.image(frame, channels="BGR", 
+                                caption=f"Time: {time_sec:.2f}s (Frame {frame_idx})", 
+                                use_container_width=True)
 
-            if 'frame_idx' in gaze_data.columns:
-                gaze_frame = gaze_data[gaze_data['frame_idx'] == frame_idx]
-                avg_pupil_area = gaze_frame['pupil_size'].mean() if not gaze_frame.empty else 505
-            else:
+            # Round the current time to match with data points
+            rounded_time = round(time_sec)
+            
+            if 'elapsed' in gaze_data.columns and rounded_time == 0:
                 avg_pupil_area = 0
+            elif 'elapsed' in gaze_data.columns:
+                # Get data points with elapsed time matching the rounded time
+                time_data = gaze_data[(gaze_data['elapsed'] >= rounded_time - 0.5) & 
+                                    (gaze_data['elapsed'] < rounded_time + 0.5)]
+                avg_pupil_area = time_data['pupil_size'].mean() if not time_data.empty else 505
+            else:
+                avg_pupil_area = 404
                 
             st.metric("Average Pupil Area", f"{avg_pupil_area:.2f}")
         else:
@@ -328,27 +354,29 @@ def display_frame(video_url, frame_count, selected_video, gaze_data, tag):
     elif 'GazeSequence' in tag:
         if ret and frame is not None:
             # Use the container for initial frame display
-            frame_container.image(frame, channels="BGR", caption=f"Frame {frame_idx}", use_container_width=True)
+            frame_container.image(frame, channels="BGR", 
+                                 caption=f"Time: {time_sec:.2f}s (Frame {frame_idx})", 
+                                 use_container_width=True)
         else:
             st.warning("❌ Could not load this frame. It may not exist at this index.")
             
         # Add controls for playing a short sequence
         col1, col2, col3 = st.columns([1, 1, 2])
         with col1:
-            play_frames_65 = st.button("Play 65 Frames")
+            play_seconds_2 = st.button("Play 2 Seconds")
         with col2:
-            play_frames_100 = st.button("Play 100 Frames")
+            play_seconds_5 = st.button("Play 5 Seconds")
         with col3:
             play_speed = st.select_slider("Speed", options=["0.5x", "1x", "2x"], value="1x")
         
         # Play a sequence of frames when the button is clicked
-        if play_frames_65 or play_frames_100:
+        if play_seconds_2 or play_seconds_5:
             speed_factor = {"0.5x": 0.5, "1x": 1.0, "2x": 2.0}[play_speed]
-            num_frames = 65 if play_frames_65 else 100
-            fps = st.session_state.fps
+            seconds_to_play = 2 if play_seconds_2 else 5
+            frames_to_play = int(seconds_to_play * fps)
             
             # Calculate end index
-            end_idx = min(frame_idx + num_frames, frame_count)
+            end_idx = min(frame_idx + frames_to_play, frame_count)
             
             # Play the frames using the same container
             for i in range(frame_idx, end_idx):
@@ -357,16 +385,21 @@ def display_frame(video_url, frame_count, selected_video, gaze_data, tag):
                 ret, current_frame = st.session_state.video_cap.read()
                 
                 if ret and current_frame is not None:
+                    # Calculate current time from frame index
+                    current_time = i / fps
+                    
                     # Update the same container with each new frame
                     frame_container.image(current_frame, channels="BGR", 
-                                         caption=f"Time {i/fps:.2f}s | Frame {i}", 
+                                         caption=f"Time: {current_time:.2f}s (Frame {i})", 
                                          use_container_width=True)
                     # time.sleep(1 / (16 * fps * speed_factor))
     else:
         # Default case for other tag types
         if ret and frame is not None:
             # Use the container for initial frame display
-            frame_container.image(frame, channels="BGR", caption=f"Frame {frame_idx}", use_container_width=True)
+            frame_container.image(frame, channels="BGR", 
+                                 caption=f"Time: {time_sec:.2f}s (Frame {frame_idx})", 
+                                 use_container_width=True)
         else:
             st.warning("❌ Could not load this frame. It may not exist at this index.")
 
@@ -475,7 +508,7 @@ def detail_page():
         selected_video = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['name']
         gaze_data = load_data(DATA_PUPIL_URL, target_clip_index)
 
-        display_frame(video_path, frame_count, selected_video, gaze_data, tag = 'PupilSize')
+        display_frame(video_path, frame_count, selected_video, tag = 'PupilSize', gaze_data = gaze_data)
     
     with tab2:
         st.header(f"Gaze Heatmap - {light_condition.upper()} Light Condition🔦")
@@ -521,9 +554,9 @@ def detail_page():
             video_path = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['Gaze Sequence']['overall']
             frame_count = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['frame_count']
             selected_video = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['name']
-            gaze_data = load_data(DATA_PUPIL_URL, target_clip_index)
+            # gaze_data = load_data(DATA_PUPIL_URL, target_clip_index)
 
-            display_frame(video_path, frame_count, selected_video, gaze_data, tag)
+            display_frame(video_path, frame_count, selected_video, tag,  gaze_data)
 
 
         elif path_type == 'Individual':
@@ -545,9 +578,9 @@ def detail_page():
                 video_path = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['Gaze Sequence']['participant'][parti_no]
                 frame_count = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['frame_count']
                 selected_video = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['name']
-                gaze_data = load_data(DATA_PUPIL_URL, target_clip_index)
+                # gaze_data = load_data(DATA_PUPIL_URL, target_clip_index)
 
-                display_frame(video_path, frame_count, selected_video, gaze_data, tag)
+                display_frame(video_path, frame_count, selected_video, tag, gaze_data)
             
             else:
                 st.warning("Please select participant")
