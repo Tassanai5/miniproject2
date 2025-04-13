@@ -18,20 +18,21 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530570/SHREK_10a_c_nxfopw.mov',
                                     'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443658/heatmapoverlay_SHREK_10a_s0qq7j.mp4',
                                     'Gaze Sequence': {
-                                                        'overall': '',
+                                                        'overall': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744538895/Shrekpath_10a_overall_male6n.mp4',
                                                         'participant': [
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        ''
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744538896/Shrekpath_2086ty_jlrs9z.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744538894/Shrekpath_2081lo_oxe5yo.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744538894/Shrekpath_1744an_k5zetx.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744538894/Shrekpath_2024er_hszqk5.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744538892/Shrekpath_2157ss_coocfg.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744538890/Shrekpath_2700hm_vx5b2d.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744538889/Shrekpath_2401er_qrbtk2.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744538887/Shrekpath_2160rz_whol9e.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744538886/Shrekpath_2168hd_rjsd0u.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744538885/Shrekpath_2133lr_uh6uyx.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744538884/Shrekpath_1864nw_j7dksr.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744538883/Shrekpath_2775ar_ri1mf0.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744538882/Shrekpath_2278te_sy9n4w.mp4'
                                                                         ]
                                                     }
                                     },
@@ -42,19 +43,20 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530570/SHREK_3b_c_qg81tt.mov',
                                     'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443668/heatmapoverlay_SHREK_3b_lqcyyc.mp4',
                                     'Gaze Sequence': {
-                                                        'overall': '',
+                                                        'overall': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744538956/Shrekpath_3b_overall_xn1zah.mp4',
                                                         'participant': [
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        ''
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744538955/Shrekpath_2464ys_zcenzz.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744538955/Shrekpath_2789ly_sqlwer.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744538954/Shrekpath_2764hn_absksb.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744538951/Shrekpath_1744an_nye1tu.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744538951/Shrekpath_2024er_x0fqxk.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744538950/Shrekpath_2700hm_opilq8.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744538948/Shrekpath_2702SZ_mczmw4.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744538945/Shrekpath_1776yy_ya6a1f.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744538943/Shrekpath_2168hd_ra4sxw.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744538942/Shrekpath_2237ns_fqfpnt.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744538941/Shrekpath_2152so_zvzp0l.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744538939/Shrekpath_2367oo_yxnlfz.mp4'
                                                                         ]
                                                     }
                                     },
@@ -92,20 +94,21 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530559/DEEPB_9c_c_rhhepr.mov',
                                     'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443688/heatmapoverlay_DEEPB_9c_uwtbxs.mp4',
                                     'Gaze Sequence': {
-                                                        'overall': '',
+                                                        'overall': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539079/DEEPBPATH_overall_z4q7ew.mp4',
                                                         'participant': [
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        ''
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539092/Deepbpath_2029ny_vdk6vp.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539091/Deepbpath_2753nt_e6wgf5.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539091/Deepbpath_2789ly_ybig5p.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539083/Deepbpath_1875td_afapbp.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539083/Deepbpath_2112el_fa8inc.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539079/Deepbpath_1776yy_dcej1t.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539077/Deepbpath_2025es_r3ya2w.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539068/Deepbpath_2278te_foq3cl.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539065/Deepbpath_2144dl_tlcaxh.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539064/Deepbpath_2180yr_urgpoe.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539064/Deepbpath_2141po_xgnnha.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539062/Deepbpath_2030nr_vlnu0c.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539052/Deepbpath_1947ne_kukdhi.mp4'
                                                                         ]
                                                     }
                                     },
@@ -116,19 +119,20 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530556/DEEPB_5b_c_nyvoao.mov',
                                     'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443488/heatmapoverlay_DEEPB_5b_p1erof.mp4',
                                     'Gaze Sequence': {
-                                                        'overall': '',
+                                                        'overall': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539111/DEEPBPATH_overall_oqnxvy.mp4',
                                                         'participant': [
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        ''
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539119/Deepbpath_1744an_hmfaxi.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539118/Deepbpath_2133lr_xajn5u.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539117/Deepbpath_1613ey_uuy1an.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539117/Deepbpath_1848ne_feczbn.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539113/Deepbpath_2176as_adzdzr.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539110/Deepbpath_1864nw_k1uek4.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539107/Deepbpath_2719sn_yi1os0.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539107/Deepbpath_2005dh_bryzfv.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539103/Deepbpath_2327wn_qonaxx.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539102/Deepbpath_2006nh_kvlcmt.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539098/Deepbpath_2152so_j127gp.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539092/Deepbpath_2072ds_k07vcc.mp4'
                                                                         ]
                                                     }
                                     },
@@ -139,19 +143,21 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530582/DEEPB_11a_c_kw5icz.mov',
                                     'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443720/heatmapoverlay_DEEPB_11a_packhk.mp4',
                                     'Gaze Sequence': {
-                                                        'overall': '',
-                                                        'participant': ['',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '']
+                                                        'overall': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539091/DEEPBPATH_overall_swaldc.mp4',
+                                                        'participant': [
+                                                                'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539137/Deepbpath_1613ey_xuqdom.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539133/Deepbpath_2160rz_hqgjqc.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539126/Deepbpath_2024er_zyli9f.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539124/Deepbpath_2133lr_iory93.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539122/Deepbpath_2081lo_pknwls.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539104/Deepbpath_2719sn_osjjzw.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539088/Deepbpath_2270er_uq1ldr.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539080/Deepbpath_2152so_mwkabv.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539071/Deepbpath_2781yh_qlqrzj.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539070/Deepbpath_2144dl_wn9im5.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539070/Deepbpath_2072ds_q3nfaf.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539031/Deepbpath_1947ne_qb3lyk.mp4'
+                                                                        ]
                                                     }
                                     }
                         }
@@ -166,20 +172,20 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530575/SQUID_8a_c_pq5bxy.mov',
                                     'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443689/heatmapoverlay_SQUID_8a_vehssz.mp4',
                                     'Gaze Sequence': {
-                                                        'overall': '',
+                                                        'overall': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539158/Squidpath_overall_z157xl.mp4',
                                                         'participant': [
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        ''
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539166/Squidpath_2086ty_grshxp.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539164/Squidpath_2139ha_rze4z2.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539163/Squidpath_2792sl_bcfkcw.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539162/Squidpath_2081lo_gtpf6w.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539161/Squidpath_2700hm_vg9cvs.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539161/Squidpath_2112el_tgitru.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539159/Squidpath_2017ae_kafcqr.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539156/Squidpath_2039nn_wah3ly.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539154/Squidpath_2006nh_a5sf5t.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539153/Squidpath_0972rs_pvu9wd.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539153/Squidpath_2327wn_qnjw40.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539152/Squidpath_2278te_wchk5b.mp4'
                                                                         ]
                                                     }
                                     },
@@ -190,19 +196,21 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530575/SQUID_12c_c_xjxogc.mov',
                                     'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443695/heatmapoverlay_SQUID_12c_x7zaou.mp4',
                                     'Gaze Sequence': {
-                                                        'overall': '',
+                                                        'overall': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539178/Squidpath_overall_gs113d.mp4',
                                                         'participant': [
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        ''
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539181/Squidpath_2139ha_y2wk9f.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539180/Squidpath_1613ey_rblxlp.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539179/Squidpath_2133lr_iuafad.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539178/Squidpath_2081lo_c7jyhf.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539178/Squidpath_0724er_w5z5kx.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539177/Squidpath_2160rz_n1gbnl.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539174/Squidpath_2017ae_jxsozp.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539173/Squidpath_1875td_ygsktz.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539172/Squidpath_2103en_npd7bm.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539172/Squidpath_2006nh_egzpu6.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539170/Squidpath_2072ds_suq1vf.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539170/Squidpath_2367oo_nei41a.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539169/Squidpath_2065ey_b63nju.mp4'
                                                                         ]
                                                     }
                                     },
@@ -213,19 +221,22 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530577/SQUID_6a_c_vpq0nm.mov',
                                     'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443691/heatmapoverlay_SQUID_6a_wpmqec.mp4',
                                     'Gaze Sequence': {
-                                                        'overall': '',
-                                                        'participant': ['',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '',
-                                                                        '']
+                                                        'overall': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539133/Squidpath_overall_iokfmm.mp4',
+                                                        'participant': [
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539151/Squidpath_2033kt_e5nxj2.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539148/Squidpath_0811ne_g6aj9c.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539147/Squidpath_2009dl_mg2i3z.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539147/Squidpath_1744an_wjkt2g.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539146/Squidpath_2720dn_f7n93p.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539145/Squidpath_2753nt_jdlu2f.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539142/Squidpath_2005dh_cxdxup.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539139/Squidpath_2327wn_dgtvz2.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539137/Squidpath_2094ne_mweysk.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539134/Squidpath_2702SZ_bkzwbe.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539131/Squidpath_2153ng_g4rwa9.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539129/Squidpath_2180yr_gcaef7.mp4',
+                                                                        'https://res.cloudinary.com/dlggzzrag/video/upload/v1744539120/Squidpath_2130oa_bqjzle.mp4'
+                                                                        ]
                                                     }
                                     }
                         }
