@@ -429,14 +429,14 @@ def display_frame(video_url, frame_count, selected_video, tag, gaze_data=None, l
         with col1:
             play_speed = st.select_slider("Speed", options=["0.5x", "1x", "2x"], value="1x", key=f"speed_{tag}")
         with col2:
-            play_seconds_5 = st.button("Play 5 Seconds", key=f"play_5s_{tag}")
+            play_seconds_3 = st.button("Play 3 Seconds", key=f"play_3s_{tag}")
         with col3:
-            play_seconds_10 = st.button("Play 10 Seconds", key=f"play_10s_{tag}")
+            play_seconds_6 = st.button("Play 6 Seconds", key=f"play_6s_{tag}")
 
         # Play a sequence of frames when the button is clicked
-        if play_seconds_5 or play_seconds_10:
+        if play_seconds_3 or play_seconds_6:
             speed_factor = {"0.5x": 0.5, "1x": 1.0, "2x": 2.0}[play_speed]
-            seconds_to_play = 5 if play_seconds_5 else 10
+            seconds_to_play = 3 if play_seconds_3 else 6
             
             # Calculate the starting and ending time in seconds
             start_time = time_sec
