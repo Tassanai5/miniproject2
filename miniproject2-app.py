@@ -10,7 +10,7 @@ import os
 # === CONFIGURATION ===
 CLIP_VIDEO_MAPPING =[{'Shrek': 
                         {
-                            'Thumbnail': 'https://live.staticflickr.com/65535/54450634786_3e59d2cb34_k.jpg',
+                            'Thumbnail': 'https://res.cloudinary.com/dlggzzrag/image/upload/v1744641426/Thumbnail_Squid_gv1clx.png',
                             'Low': {
                                     'name': 'SHREK_10a',
                                     'clip_index': 22,
@@ -86,14 +86,14 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                     },
                     {'Deep Blue': 
                         {
-                            'Thumbnail': 'https://live.staticflickr.com/65535/54450817094_78aaa466b9_k.jpg',
+                            'Thumbnail': 'https://res.cloudinary.com/dlggzzrag/image/upload/v1744641392/Thumbnail_DeepBlue_vlxdgf.png',
                             'Low': {
                                     'name': 'DEEPB_13a',
                                     'clip_index': 42,
                                     'frame_count': 720,
                                     'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744626292/DEEPB_13a_c_zn64s5.mov',
-                                    'PupilSize': '',
-                                    'Heatmap': '',
+                                    'PupilSize': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744634415/DEEPB_13a_output_rz1uys.mp4',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744634347/heatmapoverlay_42_DEEPB_13a_ctexy7.mp4',
                                     'Gaze Sequence': {
                                                         'participant': [
                                                                         '',
@@ -162,7 +162,7 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                     },
                     {'The Squid and the Whale': 
                         {
-                            'Thumbnail': 'https://live.staticflickr.com/65535/54450998455_a3f608c208_k.jpg',
+                            'Thumbnail': 'https://res.cloudinary.com/dlggzzrag/image/upload/v1744641426/Thumbnail_Squid_gv1clx.png',
                             'Low': {
                                     'name': 'SQUID_8a',
                                     'clip_index': 196,
@@ -191,8 +191,8 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     'clip_index': 194,
                                     'frame_count': 720,
                                     'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744626312/SQUID_4a_c_vay8ny.mov',
-                                    'PupilSize': '',
-                                    'Heatmap': '',
+                                    'PupilSize': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744634405/SQUID_4a_output_jg3z0f.mp4',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744634273/heatmapoverlay_194_SQUID_4a_qjhukh.mp4',
                                     'Gaze Sequence': {
                                                         'participant': [
                                                                         '',
