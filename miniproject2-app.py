@@ -93,7 +93,7 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     'frame_count': 720,
                                     'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744626292/DEEPB_13a_c_zn64s5.mov',
                                     'PupilSize': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744634415/DEEPB_13a_output_rz1uys.mp4',
-                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744634347/heatmapoverlay_42_DEEPB_13a_ctexy7.mp4',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744647753/heatmapoverlay_42_DEEPB_13a_x9re1o.mov',
                                     'Gaze Sequence': {
                                                         'participant': [
                                                                         'https://res.cloudinary.com/dlggzzrag/video/upload/v1744643766/ScanpathOnly_2764hn_jjnyiz.mp4',
