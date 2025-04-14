@@ -10,7 +10,7 @@ import os
 # === CONFIGURATION ===
 CLIP_VIDEO_MAPPING =[{'Shrek': 
                         {
-                            'Thumbnail': 'https://github.com/Tassanai5/material-miniproject2/blob/main/image/Shrek_Thumbnail.jpg?raw=true',
+                            'Thumbnail': 'https://live.staticflickr.com/65535/54450634786_3e59d2cb34_k.jpg',
                             'Low': {
                                     'name': 'SHREK_10a',
                                     'clip_index': 22,
@@ -88,7 +88,7 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                     },
                     {'Deep Blue': 
                         {
-                            'Thumbnail': 'https://github.com/Tassanai5/material-miniproject2/blob/main/image/Deep_Blue_Thumbnail.jpg?raw=true',
+                            'Thumbnail': 'https://live.staticflickr.com/65535/54450817094_78aaa466b9_k.jpg',
                             'Low': {
                                     'name': 'DEEPB_9c',
                                     'clip_index': 49,
@@ -164,7 +164,7 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                     },
                     {'The Squid and the Whale': 
                         {
-                            'Thumbnail': 'https://github.com/Tassanai5/material-miniproject2/blob/main/image/The_Squid_and_the_Whale_Thumbnail.jpg?raw=true',
+                            'Thumbnail': 'https://live.staticflickr.com/65535/54450998455_a3f608c208_k.jpg',
                             'Low': {
                                     'name': 'SQUID_8a',
                                     'clip_index': 196,
