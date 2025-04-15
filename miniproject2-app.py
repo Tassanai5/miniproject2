@@ -18,7 +18,7 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     'frame_count': 720,
                                     'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530570/SHREK_10a_c_nxfopw.mov',
                                     'PupilSize': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744626407/SHREK_10a_output_jmy3fm.mp4',
-                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443658/heatmapoverlay_SHREK_10a_s0qq7j.mp4',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744647915/resized_heatmapoverlay_22_SHREK_10a_lpbt8d.mov',
                                     'Gaze Sequence': {
                                                         'participant': [
                                                                         'https://res.cloudinary.com/dlggzzrag/video/upload/v1744598488/ScanpathOnly_2168hd_til8fy.mp4',
@@ -42,7 +42,7 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     'frame_count': 720,
                                     'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530570/SHREK_3b_c_qg81tt.mov',
                                     'PupilSize': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744626405/SHREK_3b_output_f3vtqs.mp4',
-                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443668/heatmapoverlay_SHREK_3b_lqcyyc.mp4',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744647914/resized_heatmapoverlay_28_SHREK_3b_vbhksm.mov',
                                     'Gaze Sequence': {
                                                         'participant': [
                                                                         'https://res.cloudinary.com/dlggzzrag/video/upload/v1744606444/ScanpathOnly_2168hd_slapvv.mp4',
@@ -65,7 +65,7 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     'frame_count': 720,
                                     'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530573/SHREK_3a_c_ibscr9.mov',
                                     'PupilSize': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744626403/SHREK_3a_output_mqd0rx.mp4',
-                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443692/heatmapoverlay_SHREK_3a_dgrkux.mp4',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744647910/resized_heatmapoverlay_27_SHREK_3a_sgf2ab.mov',
                                     'Gaze Sequence': {
                                                         'participant': [
                                                                         'https://res.cloudinary.com/dlggzzrag/video/upload/v1744597917/ScanpathOnly_2039nn_xebliu.mp4',
@@ -94,7 +94,7 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     'frame_count': 720,
                                     'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744626292/DEEPB_13a_c_zn64s5.mov',
                                     'PupilSize': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744634415/DEEPB_13a_output_rz1uys.mp4',
-                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744634347/heatmapoverlay_42_DEEPB_13a_ctexy7.mp4',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744647944/resized_heatmapoverlay_42_DEEPB_13a_asoi5w.mov',
                                     'Gaze Sequence': {
                                                         'participant': [
                                                                         'https://res.cloudinary.com/dlggzzrag/video/upload/v1744643766/ScanpathOnly_2764hn_jjnyiz.mp4',
@@ -118,7 +118,7 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     'frame_count': 719,
                                     'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530556/DEEPB_5b_c_nyvoao.mov',
                                     'PupilSize': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744626392/DEEPB_5b_output_baqkav.mp4',
-                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443488/heatmapoverlay_DEEPB_5b_p1erof.mp4',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744647948/resized_heatmapoverlay_45_DEEPB_5b_lr5mff.mov',
                                     'Gaze Sequence': {
                                                         'participant': [
                                                                         'https://res.cloudinary.com/dlggzzrag/video/upload/v1744610490/ScanpathOnly_2005dh_dn7win.mp4',
@@ -141,7 +141,7 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     'frame_count': 720,
                                     'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530582/DEEPB_11a_c_kw5icz.mov',
                                     'PupilSize': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744626395/DEEPB_11a_output_o58jwj.mp4',
-                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443720/heatmapoverlay_DEEPB_11a_packhk.mp4',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744647940/resized_heatmapoverlay_41_DEEPB_11a_qvscoi.mov',
                                     'Gaze Sequence': {
                                                         'participant': [
                                                                         'https://res.cloudinary.com/dlggzzrag/video/upload/v1744610519/ScanpathOnly_2144dl_k5szzs.mp4',
@@ -170,7 +170,7 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     'frame_count': 720,
                                     'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530575/SQUID_8a_c_pq5bxy.mov',
                                     'PupilSize': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744626423/SQUID_8a_output_hhs0sc.mp4',
-                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443689/heatmapoverlay_SQUID_8a_vehssz.mp4',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744647980/resized_heatmapoverlay_196_SQUID_8a_pgnxhm.mov',
                                     'Gaze Sequence': {
                                                         'participant': [
                                                                         'https://res.cloudinary.com/dlggzzrag/video/upload/v1744610534/ScanpathOnly_2006nh_sbvg09.mp4',
@@ -193,7 +193,7 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     'frame_count': 720,
                                     'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744626312/SQUID_4a_c_vay8ny.mov',
                                     'PupilSize': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744634405/SQUID_4a_output_jg3z0f.mp4',
-                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744634273/heatmapoverlay_194_SQUID_4a_qjhukh.mp4',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744647975/resized_heatmapoverlay_194_SQUID_4a_msf6nc.mov',
                                     'Gaze Sequence': {
                                                         'participant': [
                                                                         'https://res.cloudinary.com/dlggzzrag/video/upload/v1744644469/194_Squid_4aScanpathOnly_2802ln_kapt4n.mp4',
@@ -218,7 +218,7 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     'frame_count': 720,
                                     'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530577/SQUID_6a_c_vpq0nm.mov',
                                     'PupilSize': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744626421/SQUID_6a_output_tcdsky.mp4',
-                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443691/heatmapoverlay_SQUID_6a_wpmqec.mp4',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744647982/resized_heatmapoverlay_195_SQUID_6a_oy8zq6.mov',
                                     'Gaze Sequence': {
                                                         'participant': [
                                                                         'https://res.cloudinary.com/dlggzzrag/video/upload/v1744610633/ScanpathOnly_2005dh_jjxyk2.mp4',
@@ -333,7 +333,7 @@ def display_frame(video_url, frame_count, selected_video, tag, gaze_data=None, l
         # Get total duration in seconds
         st.session_state[duration_key] = frame_count / st.session_state[fps_key]
 
-    st.write(f"Now playing: {selected_video}🎥")
+    st.write(f"Now playing: {selected_video}")
 
     # Calculate total duration and create time markers
     duration = st.session_state[duration_key]
@@ -580,13 +580,13 @@ def detail_page():
     light_condition = st.session_state['light_condition']
     
     with tab1:
-        st.header(f"Pupil Size Analysis - {light_condition} Light Condition🔦")
+        st.header(f"Average Pupil Size with {light_condition} light condition")
         
         # Import heatmap with light conditions
         clip_name = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['name']
         pupilsize_url = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['PupilSize']
 
-        st.write(f"Now playing: {clip_name}🎥")
+        st.write(f"Now playing: {clip_name}")
 
         try:
             st.video(pupilsize_url)    
@@ -596,13 +596,13 @@ def detail_page():
             st.error(f"Error displaying video: {e}")
     
     with tab2:
-        st.header(f"Gaze Heatmap - {light_condition.upper()} Light Condition🔦")
+        st.header(f"Gaze Heatmap with {light_condition} light condition")
 
         # Import heatmap with light conditions
         clip_name = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['name']
         heatmap_url = CLIP_VIDEO_MAPPING[i][selected_clip][light_condition]['Heatmap']
 
-        st.write(f"Now playing: {clip_name}🎥")
+        st.write(f"Now playing: {clip_name}")
 
         try:
             st.video(heatmap_url)    
@@ -612,7 +612,7 @@ def detail_page():
             st.error(f"Error displaying video: {e}")
     
     with tab3:
-        st.header(f"Gaze Sequence - {light_condition} Light Condition🔦")
+        st.header(f"Gaze Sequence with {light_condition} light condition")
 
         # Create a unique tag for this light condition and tab
         unique_tag = f'GazeSequence_{light_condition}'
