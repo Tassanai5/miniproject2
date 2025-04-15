@@ -693,7 +693,7 @@ def summ_page():
         # **Show 3 charts for Low, Medium, and High Light without any selection**
 
         # Low Light Category
-        st.write("**Low Light Category**")
+        st.write("**Low Light Condition**")
         selected_movies1 = [22, 42, 196]  # Movies for Low Light
         label_map1 = {22: "Shrek Forever After", 42: "Deep Blue", 196: "The Squid and the Whale"}
         fig1 = generate_plot(df, selected_movies1, label_map1, view_type, "👁 Average Pupil Size Over Time",comparison_type)
@@ -701,14 +701,14 @@ def summ_page():
         st.plotly_chart(fig1, use_container_width=True)
 
         # Medium Light Category
-        st.write("**Medium Light Category**")
+        st.write("**Medium Light Condition**")
         selected_movies2 = [28, 45, 194]  # Movies for Medium Light
         label_map2 = {28: "Shrek Forever After", 45: "Deep Blue", 194: "The Squid and the Whale"}
         fig2 = generate_plot(df, selected_movies2, label_map2, view_type, "👁 Average Pupil Size Over Time",comparison_type)
         st.plotly_chart(fig2, use_container_width=True)
 
         # High Light Category
-        st.write("**High Light Category**")
+        st.write("**High Light Condition**")
         selected_movies3 = [27, 41, 195]  # Movies for High Light
         label_map3 = {27: "Shrek Forever After", 41: "Deep Blue", 195: "The Squid and the Whale"}
         fig3 = generate_plot(df, selected_movies3, label_map3, view_type, "👁 Average Pupil Size Over Time",comparison_type)
