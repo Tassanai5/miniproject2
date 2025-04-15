@@ -6,6 +6,7 @@ import cv2
 import requests
 import tempfile
 import os
+import plotly.express as px
 
 # === CONFIGURATION ===
 CLIP_VIDEO_MAPPING =[{'Shrek': 
@@ -17,7 +18,7 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     'frame_count': 720,
                                     'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530570/SHREK_10a_c_nxfopw.mov',
                                     'PupilSize': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744626407/SHREK_10a_output_jmy3fm.mp4',
-                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744647915/resized_heatmapoverlay_22_SHREK_10a_lpbt8d.mov',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443658/heatmapoverlay_SHREK_10a_s0qq7j.mp4',
                                     'Gaze Sequence': {
                                                         'participant': [
                                                                         'https://res.cloudinary.com/dlggzzrag/video/upload/v1744598488/ScanpathOnly_2168hd_til8fy.mp4',
@@ -41,7 +42,7 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     'frame_count': 720,
                                     'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530570/SHREK_3b_c_qg81tt.mov',
                                     'PupilSize': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744626405/SHREK_3b_output_f3vtqs.mp4',
-                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744647914/resized_heatmapoverlay_28_SHREK_3b_vbhksm.mov',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443668/heatmapoverlay_SHREK_3b_lqcyyc.mp4',
                                     'Gaze Sequence': {
                                                         'participant': [
                                                                         'https://res.cloudinary.com/dlggzzrag/video/upload/v1744606444/ScanpathOnly_2168hd_slapvv.mp4',
@@ -64,7 +65,7 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     'frame_count': 720,
                                     'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530573/SHREK_3a_c_ibscr9.mov',
                                     'PupilSize': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744626403/SHREK_3a_output_mqd0rx.mp4',
-                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744647910/resized_heatmapoverlay_27_SHREK_3a_sgf2ab.mov',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443692/heatmapoverlay_SHREK_3a_dgrkux.mp4',
                                     'Gaze Sequence': {
                                                         'participant': [
                                                                         'https://res.cloudinary.com/dlggzzrag/video/upload/v1744597917/ScanpathOnly_2039nn_xebliu.mp4',
@@ -93,7 +94,7 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     'frame_count': 720,
                                     'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744626292/DEEPB_13a_c_zn64s5.mov',
                                     'PupilSize': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744634415/DEEPB_13a_output_rz1uys.mp4',
-                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744647944/resized_heatmapoverlay_42_DEEPB_13a_asoi5w.mov',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744634347/heatmapoverlay_42_DEEPB_13a_ctexy7.mp4',
                                     'Gaze Sequence': {
                                                         'participant': [
                                                                         'https://res.cloudinary.com/dlggzzrag/video/upload/v1744643766/ScanpathOnly_2764hn_jjnyiz.mp4',
@@ -117,7 +118,7 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     'frame_count': 719,
                                     'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530556/DEEPB_5b_c_nyvoao.mov',
                                     'PupilSize': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744626392/DEEPB_5b_output_baqkav.mp4',
-                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744647948/resized_heatmapoverlay_45_DEEPB_5b_lr5mff.mov',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443488/heatmapoverlay_DEEPB_5b_p1erof.mp4',
                                     'Gaze Sequence': {
                                                         'participant': [
                                                                         'https://res.cloudinary.com/dlggzzrag/video/upload/v1744610490/ScanpathOnly_2005dh_dn7win.mp4',
@@ -140,7 +141,7 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     'frame_count': 720,
                                     'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530582/DEEPB_11a_c_kw5icz.mov',
                                     'PupilSize': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744626395/DEEPB_11a_output_o58jwj.mp4',
-                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744647940/resized_heatmapoverlay_41_DEEPB_11a_qvscoi.mov',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443720/heatmapoverlay_DEEPB_11a_packhk.mp4',
                                     'Gaze Sequence': {
                                                         'participant': [
                                                                         'https://res.cloudinary.com/dlggzzrag/video/upload/v1744610519/ScanpathOnly_2144dl_k5szzs.mp4',
@@ -169,7 +170,7 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     'frame_count': 720,
                                     'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530575/SQUID_8a_c_pq5bxy.mov',
                                     'PupilSize': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744626423/SQUID_8a_output_hhs0sc.mp4',
-                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744647980/resized_heatmapoverlay_196_SQUID_8a_pgnxhm.mov',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443689/heatmapoverlay_SQUID_8a_vehssz.mp4',
                                     'Gaze Sequence': {
                                                         'participant': [
                                                                         'https://res.cloudinary.com/dlggzzrag/video/upload/v1744610534/ScanpathOnly_2006nh_sbvg09.mp4',
@@ -192,7 +193,7 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     'frame_count': 720,
                                     'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744626312/SQUID_4a_c_vay8ny.mov',
                                     'PupilSize': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744634405/SQUID_4a_output_jg3z0f.mp4',
-                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744647975/resized_heatmapoverlay_194_SQUID_4a_msf6nc.mov',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744634273/heatmapoverlay_194_SQUID_4a_qjhukh.mp4',
                                     'Gaze Sequence': {
                                                         'participant': [
                                                                         'https://res.cloudinary.com/dlggzzrag/video/upload/v1744644469/194_Squid_4aScanpathOnly_2802ln_kapt4n.mp4',
@@ -217,7 +218,7 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                                     'frame_count': 720,
                                     'Original': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744530577/SQUID_6a_c_vpq0nm.mov',
                                     'PupilSize': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744626421/SQUID_6a_output_tcdsky.mp4',
-                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744647982/resized_heatmapoverlay_195_SQUID_6a_oy8zq6.mov',
+                                    'Heatmap': 'https://res.cloudinary.com/dlggzzrag/video/upload/v1744443691/heatmapoverlay_SQUID_6a_wpmqec.mp4',
                                     'Gaze Sequence': {
                                                         'participant': [
                                                                         'https://res.cloudinary.com/dlggzzrag/video/upload/v1744610633/ScanpathOnly_2005dh_jjxyk2.mp4',
@@ -238,7 +239,7 @@ CLIP_VIDEO_MAPPING =[{'Shrek':
                         }
                     }]
 CLIP_NAMES = ['Shrek', 'Deep Blue', 'The Squid and the Whale']
-DATA_PUPIL_URL = 'https://media.githubusercontent.com/media/Tassanai5/material-miniproject2/refs/heads/main/pupil_size.csv'
+file_path = "https://media.githubusercontent.com/media/Tassanai5/material-miniproject2/refs/heads/main/%5B22%2C%2028%2C%2027%2C%2042%2C%2045%2C%2041%2C%20196%2C%20194%2C%20195%5D_specific_clip_data.csv"
 
 # === INITIALIZE SESSION STATE ===
 if 'page' not in st.session_state:
@@ -427,12 +428,69 @@ def display_frame(video_url, frame_count, selected_video, tag, gaze_data=None, l
             st.warning("❌ Could not load this frame. It may not exist at this index.")
 
 @st.cache_data
-def load_data(url, index):
-    df = pd.read_csv(url)
-    df = df[df['movie_index'] == index]
+def load_data(file_path):
+    return pd.read_csv(file_path)
 
-    return df
+def generate_plot(df, selected_movies, label_map, view_type, title):
+        filtered_df = df[df["movie_index"].isin(selected_movies)].copy()
+        filtered_df["movie_label"] = filtered_df["movie_index"].map(label_map)
 
+        # --- CONVERT ELAPSED TIME TO SECONDS ---
+        filtered_df["elapsed_sec"] = filtered_df["elapsed"] / 1000.0
+        
+        if view_type == "Group by Time":
+            filtered_df["elapsed_bin"] = (filtered_df["elapsed_sec"] // 1.0) * 1.0  # Binning to 1 second
+            mean_df = (
+                filtered_df.groupby(["movie_label", "elapsed_bin"])["pupil_size"]
+                .mean()
+                .reset_index()
+            )
+            x_axis = "elapsed_bin"
+        else:
+            mean_df = (
+                filtered_df.groupby(["movie_label", "elapsed_sec"])["pupil_size"]
+                .mean()
+                .reset_index()
+            )
+            x_axis = "elapsed_sec"
+
+        # --- PLOTLY INTERACTIVE LINE CHART ---
+        fig = px.line(
+            mean_df,
+            x=x_axis,
+            y="pupil_size",
+            color="movie_label",
+            labels={x_axis: "Time (seconds)", "pupil_size": "Avg. Pupil Size", "movie_label": "Lighting"},
+            title=title,
+            markers=True,
+            template="plotly_white",
+            category_orders={
+                "movie_label": ["High Light", "Medium Light", "Low Light"]  # Order of the categories
+            },
+            color_discrete_map={
+                "High Light": "darkorange",           # Red for High Light
+                "Medium Light": "yellow",      # Yellow for Medium Light
+                "Low Light": "lightseagreen"   # Sky Blue with a hint of green for Low Light
+            }
+        )
+
+        fig.update_traces(
+            mode="lines+markers",
+            hovertemplate="Time: %{x:.1f}s<br>Pupil Size: %{y:.1f}"
+        )
+        fig.update_layout(
+            hovermode="closest",  # Show only the line under the pointer
+            height=500,
+            width=1000,  # Adjust width to make it clearer
+            legend_title="Lighting Condition",
+            title_x=0,  # Left align the title
+            title_y=1,  # Keep title at the top
+            xaxis_title="Time (seconds)",  # Add x-axis title
+            yaxis_title="Avg. Pupil Size",  # Add y-axis title
+        )
+        
+        return fig
+    
 # === PAGE 1: Home (Clip Selection) ===
 # In your home_page function, when a movie is selected:
 def home_page():
@@ -585,13 +643,73 @@ def detail_page():
         
 # === PAGE 3: Clip Detail ===
 def summ_page():
-    """Displays a summary page with embedded Tableau dashboards."""
-    
-    st.title("⏰Wait for Gaze Analysis Summary Dashboard...")
-    
-    # Description
-    st.write("This page shows comprehensive analysis dashboards created in Tableau.")
-    st.write("But we are still waiting for the data to fill here🙌🏻😘🫱🏻‍🫲🏾")
+    # --- PAGE SETUP ---
+    st.set_page_config(layout="centered")
+    st.title("Movie Pupil Size Analysis by Lighting Condition")
+    st.write("""
+    Explore how the average pupil size varies across different movies and lighting conditions.
+    This interactive dashboard allows you to compare the changes in pupil size over time for three movies: 
+    **Shrek Forever After**, **Deep Blue**, and **The Squid and the Whale**, under different lighting conditions:
+    **Low Light**, **Medium Light**, and **High Light**.
+    """)
+
+
+    # --- USER SELECTOR: Show detailed data or binned data ---
+    view_type = st.radio(
+        "Select how you want to view the data:",
+        ("Show Raw Data", "Group by Time")
+    )
+
+    # --- LOAD DATA (Shared for all categories) ---
+    df = load_data(file_path)
+
+    # --- "By Movies" Comparison ---
+    comparison_type = st.selectbox("Select Comparison Type", ["By Movies", "By Lighting Conditions"])
+
+    if comparison_type == "By Movies":
+        # Movie selection: Select movies for comparison
+        st.write("**Shrek Forever After**")
+        selected_movies1 = [22, 28, 27]  # Movies for Shrek
+        label_map1 = {22: "Low Light", 28: "Medium Light", 27: "High Light"}
+        fig1 = generate_plot(df, selected_movies1, label_map1, view_type, "👁 Average Pupil Size Over Time")
+        st.plotly_chart(fig1, use_container_width=True)
+
+        st.write("**Deep Blue**")
+        selected_movies2 = [42, 45, 41]  # Movies for Deep Blue
+        label_map2 = {42: "Low Light", 45: "Medium Light", 41: "High Light"}
+        fig2 = generate_plot(df, selected_movies2, label_map2, view_type, "👁 Average Pupil Size Over Time")
+        st.plotly_chart(fig2, use_container_width=True)
+
+        st.write("**The Squid and the Whale**")
+        selected_movies3 = [196, 194, 195]  # Movies for Squid
+        label_map3 = {196: "Low Light", 194: "Medium Light", 195: "High Light"}
+        fig3 = generate_plot(df, selected_movies3, label_map3, view_type, "👁 Average Pupil Size Over Time")
+        st.plotly_chart(fig3, use_container_width=True)
+
+    elif comparison_type == "By Lighting Conditions":
+        # **Show 3 charts for Low, Medium, and High Light without any selection**
+
+        # Low Light Category
+        st.write("**Low Light Category**")
+        selected_movies1 = [22, 42, 196]  # Movies for Low Light
+        label_map1 = {22: "Shrek Forever After", 42: "Deep Blue", 196: "The Squid and the Whale"}
+        fig1 = generate_plot(df, selected_movies1, label_map1, view_type, "👁 Average Pupil Size Over Time")
+        st.plotly_chart(fig1, use_container_width=True)
+
+        # Medium Light Category
+        st.write("**Medium Light Category**")
+        selected_movies2 = [28, 45, 194]  # Movies for Medium Light
+        label_map2 = {28: "Shrek Forever After", 45: "Deep Blue", 194: "The Squid and the Whale"}
+        fig2 = generate_plot(df, selected_movies2, label_map2, view_type, "👁 Average Pupil Size Over Time")
+        st.plotly_chart(fig2, use_container_width=True)
+
+        # High Light Category
+        st.write("**High Light Category**")
+        selected_movies3 = [27, 41, 195]  # Movies for High Light
+        label_map3 = {27: "Shrek Forever After", 41: "Deep Blue", 195: "The Squid and the Whale"}
+        fig3 = generate_plot(df, selected_movies3, label_map3, view_type, "👁 Average Pupil Size Over Time")
+        st.plotly_chart(fig3, use_container_width=True)
+
     
     # Create a footer container
     footer_container = st.container()
