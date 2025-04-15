@@ -498,8 +498,8 @@ def generate_plot(df, selected_movies, label_map, view_type, title, comparison_t
 # === PAGE 1: Home (Clip Selection) ===
 def home_page():
     """Displays the clip selection page."""
-    st.title("Seeing Stories: A Visual Analysis of Eye-Tracking Data across movie genres")
-    st.write("Our eyes don't just watch -- they reveal. In this project, we explore how people visually engage with movies across different genres using eye-tracking data. From action-packed thrillers to emotion-rich dramas, we tracked every gaze, and every flicker of attention.")
+    st.title("Eyes don't Lie")
+    st.write("Our eyes don't just watch -- they reveal. In this project, we explore how people visually engage with movies across different genres using eye-tracking data. From fast-paced, visually immersive animation to emotion-rich dramas, we tracked every gaze, and every flicker of attention. Join us in exploring how visual stimuli impact audience engagement!")
     
     # Add a randomized prefix or timestamp to ensure keys are unique on each rerun
     session_id = st.session_state.get('session_id', str(int(time.time())))
