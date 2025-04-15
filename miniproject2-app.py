@@ -339,7 +339,9 @@ def display_frame(video_url, frame_count, selected_video, tag, gaze_data=None, l
     fps = st.session_state[fps_key]
     
     # Create time markers every second, plus the end time
-    time_markers = [i for i in range(int(duration) + 1)] + ([round(duration, 0)] if duration % 1 > 0 else [])
+    time_markers_0 = [i + 0.5 for i in range(int(duration))] + ([round(duration, 0)] if duration % 1 > 0 else [])
+    time_markers_1 = [i for i in range(int(duration) + 1)] + ([round(duration, 0)] if duration % 1 > 0 else [])
+    time_markers = sorted(time_markers_0 + time_markers_1)
     
     # Create a unique session state key for this tag
     time_state_key = f"current_time_{tag}"
@@ -423,77 +425,6 @@ def display_frame(video_url, frame_count, selected_video, tag, gaze_data=None, l
                                 use_container_width=True)
         else:
             st.warning("❌ Could not load this frame. It may not exist at this index.")
-            
-        # Add controls for playing a short sequence
-        col1, col2, col3 = st.columns([2, 1, 1])
-        with col1:
-            play_speed = st.select_slider("Speed", options=["0.5x", "1x", "2x"], value="1x", key=f"speed_{tag}")
-        with col2:
-            play_seconds_3 = st.button("Play 3 Seconds", key=f"play_3s_{tag}")
-        with col3:
-            play_seconds_6 = st.button("Play 6 Seconds", key=f"play_6s_{tag}")
-
-        # Play a sequence of frames when the button is clicked
-        if play_seconds_3 or play_seconds_6:
-            speed_factor = {"0.5x": 0.5, "1x": 1.0, "2x": 2.0}[play_speed]
-            seconds_to_play = 3 if play_seconds_3 else 6
-            
-            # Calculate the starting and ending time in seconds
-            start_time = time_sec
-            end_time = min(start_time + seconds_to_play, max(time_markers))
-            
-            # Calculate how many frames we need to show for smooth playback
-            total_frames_to_play = int(seconds_to_play * fps / speed_factor)
-            time_increment = seconds_to_play / total_frames_to_play
-            
-            # Play the frames using the same container
-            current_time = start_time
-            for _ in range(total_frames_to_play):
-                if current_time > end_time:
-                    break
-                    
-                # Calculate the frame index from the current time
-                current_frame_idx = int(current_time * fps)
-                current_frame_idx = min(current_frame_idx, frame_count - 1)  # Ensure it doesn't exceed total frames
-                
-                # Seek to the frame
-                st.session_state[video_key].set(cv2.CAP_PROP_POS_FRAMES, current_frame_idx)
-                ret, current_frame = st.session_state[video_key].read()
-                
-                if ret and current_frame is not None:
-                    # For GazeSequence, we need to overlay participant data
-                    frame_overlay = current_frame.copy()
-                    
-                    if selected_participants:
-                        for p in selected_participants:
-                            parti_no = abc.index(p[-1])
-                            cap_sp = cv2.VideoCapture(gaze_path_list[parti_no])
-                            cap_sp.set(cv2.CAP_PROP_POS_FRAMES, current_frame_idx)
-                            ret_sp, frame_sp = cap_sp.read()
-                            cap_sp.release()
-                            
-                            if ret_sp:
-                                gray = cv2.cvtColor(frame_sp, cv2.COLOR_BGR2GRAY)
-                                _, mask = cv2.threshold(gray, 1, 255, cv2.THRESH_BINARY)
-                                scanpath_only = cv2.bitwise_and(frame_sp, frame_sp, mask=mask)
-                                
-                                if scanpath_only.shape[:2] != frame_overlay.shape[:2]:
-                                    scanpath_only = cv2.resize(scanpath_only, (frame_overlay.shape[1], frame_overlay.shape[0]))
-                                    
-                                frame_overlay = cv2.add(frame_overlay, scanpath_only)
-                    
-                    # Display the overlaid frame
-                    frame_container.image(frame_overlay, channels="BGR", 
-                                       caption=f"Time: {current_time:.2f}s (Frame {current_frame_idx})", 
-                                       use_container_width=True)
-                        
-                # Increment time based on the speed factor
-                current_time += time_increment * speed_factor * 2
-            
-            # After playback, update the slider to the end position
-            # This requires rerunning the app, so we store the end time in session state
-            st.session_state[time_state_key] = end_time
-            st.rerun()
 
 @st.cache_data
 def load_data(url, index):
@@ -674,12 +605,6 @@ def summ_page():
         if st.button("Back to Home", key="back_btn", use_container_width=True):
             st.session_state['page'] = 'home'
             st.rerun()
-            
-    # Place the View Summary button in the second button column
-    # with right_space:
-    #     if st.button("View Summary", key="summary_btn", use_container_width=True):
-    #         st.session_state['page'] = 'summ'
-    #         st.rerun()
 
 
 # === MAIN APP LOGIC ===
